@@ -3,13 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-    background-color: #414143;
+    background-color: #e6f0e9;
     padding-top: 60px;
 }
 
 body, a, label, ul, li {
-    color: #eeeeeb;
-    font-family: 'Fanwood Text', serif;
+    //color: #eeeeeb;
+    color: #000000;
+    //font-family: 'Fanwood Text', serif;
+    font-family:  'Palatino Linotype', 'Book Antiqua', Palatino, serif;
 }
 
 a:hover {
@@ -19,11 +21,11 @@ a:hover {
 
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Fanwood Text', serif;
-  color: #0cc50f;
+  color: #0c6b24;
 }
 
 .hero-unit {
-  background-color: #494949;
+  background-color: #85b591;
   text-align: center;
   padding: 15px;
 }
@@ -34,8 +36,13 @@ h1,h2,h3,h4,h5,h6 {
 
 .headline {
     color: #eeeeeb;
-    font-family: 'Fanwood Text', serif;
+    //font-family: 'Fanwood Text', serif;
+    font-family:  'Palatino Linotype', 'Book Antiqua', Palatino, serif;
     padding-bottom: 10px;
+}
+
+.date {
+    font-size: 36px;
 }
 
 .large {
@@ -49,7 +56,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .highlight {
-    color: #0cc50f;
+    color: #0c6b24;
 }
 
 .container p, .container li {
