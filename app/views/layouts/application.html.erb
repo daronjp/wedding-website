@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>amanda & eric</title>
+    <title>eimee & daron</title>
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
@@ -30,7 +30,7 @@
 <div class="topbar">
     <div class="fill">
         <div class="container">
-            <a class="brand <%= is_active?("home#index") %>" href="/"><span class="headline">amanda <span class="highlight">&</span> eric</span></a>
+            <a class="brand <%= is_active?("home#index") %>" href="/"><span class="headline">eimee <span class="highlight">&</span> daron</span></a>
             <ul class="nav">
                 <li class="<%= is_active?("home#wedding_party") %>"><%= link_to "Wedding Party", :controller => "home", :action => "wedding_party" %></li>
                 <li class="<%= is_active?("home#directions") %>"><%= link_to "Directions", :controller => "home", :action => "directions" %></li>
@@ -49,7 +49,7 @@
     <%= yield %>
 
     <footer>
-        <p>&copy; Big Worm 2011</p>
+        <p><!-- placeholder text --></p>
     </footer>
 
 </div>
