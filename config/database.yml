@@ -1,11 +1,12 @@
 development:
-  adapter: mysql2
+  host: localhost
+  adapter: postgresql
   database: wedding_website_development
-  username: ewryan
-  password: moomoofarm
+  username: 
+  password: 
 
 test:
-  adapter: mysql2
+  adapter: postgresql
   database: wedding_website_test
   username: ewryan
   password: moomoofarm
