@@ -1,4 +1,7 @@
 <!-- Main hero unit for a primary marketing message or call to action -->
+<% if flash[:error] %>
+  <%= flash[:error] %><br>
+<% end %>
 <div class="hero-unit">
     <h1 class="headline large">eimee <span class="highlight">&amp;</span> daron</h1>
 
