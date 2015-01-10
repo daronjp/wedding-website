@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   #protect_from_forgery
-  
+  http_basic_authenticate_with :name => "frodo", :password => "thering"
   protect_from_forgery with: :exception
   
   #before_action :gate_keeper
