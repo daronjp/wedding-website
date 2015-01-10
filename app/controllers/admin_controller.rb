@@ -2,7 +2,7 @@ require 'base64'
 
 class AdminController < ApplicationController
 
-  before_filter :authenticate
+  # before_filter :authenticate
 
   def index
     @rsvps = Rsvp.all
