@@ -1,6 +1,6 @@
-class SessionController < ApplicationController
+class SessionsController < ApplicationController
   
-  skip_before_action :gate_keeper
+  skip_before_filter :gate_keeper
   
   def new
   end
