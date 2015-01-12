@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150110184740) do
+ActiveRecord::Schema.define(:version => 20150110233256) do
 
   create_table "guests", :force => true do |t|
     t.string   "email"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20150110184740) do
     t.integer  "logins"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "token"
   end
 
   create_table "hotels", :force => true do |t|

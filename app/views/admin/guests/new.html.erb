@@ -1,0 +1,45 @@
+<div class="indenting">
+<h1>Create New Guest</h1>
+
+<%= form_for [:admin, @guest] do |f| %>
+  <% if @guest.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @guest.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    
+  <div class="separator-heading">First Name</div>
+    <fieldset>
+    <%= f.text_field :given_name %>
+    </fieldset>
+    
+  <div class="separator-heading">Last Name</div>
+    <fieldset>
+    <%= f.text_field :family_name %>
+    </fieldset>
+  
+  <div class="separator-heading">Email</div>
+    <fieldset>
+    <%= f.text_field :email %>
+    </fieldset>
+  
+  <div class="separator-heading">Password</div>
+    <fieldset>
+    <%= f.text_field :token %>
+    </fieldset>
+    
+  <div class="separator-heading">Admin?</div>
+    <fieldset>
+    <%= f.check_box :is_admin %>
+    </fieldset>
+    
+    <%# f.hidden_field :in_cr, :value => true %>
+  
+  <%= f.submit 'Create Guest', :class => 'prominent'  %>
+<% end %>
+</div>

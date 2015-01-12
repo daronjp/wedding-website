@@ -2,9 +2,9 @@ class ApplicationController < ActionController::Base
   #protect_from_forgery
   protect_from_forgery with: :exception
   
-  #before_action :gate_keeper
-  before_filter :gate_keeper
-  skip_before_filter :gate_keeper, only: [:index]
+  ####before_action :gate_keeper
+  #before_filter :gate_keeper
+  #skip_before_filter :gate_keeper, only: [:index]
   
   helper_method :current_agent
   
