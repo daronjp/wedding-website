@@ -10,6 +10,8 @@ gem 'pg'
 
 gem 'rake', '~> 10.4.2'
 
+gem 'heroku'
+
 gem 'therubyracer', '~> 0.12.1'
 
 # Gems used only for assets and not required
@@ -41,7 +43,7 @@ group :production do
 end
 
 group :development do
-  gem 'heroku'
+  #gem 'heroku'
 end
 
 group :test do
