@@ -1,0 +1,33 @@
+<div class="indenting">
+<h1>Create New Visitor</h1>
+
+<%= form_for [:admin, @visitor] do |f| %>
+  <% if @visitor.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @visitor.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    
+  <div class="separator-heading">Guest Group</div>
+    <fieldset>
+    <%= f.text_field :group %>
+    </fieldset>
+  
+  <div class="separator-heading">Password</div>
+    <fieldset>
+    <%= f.text_field :password %>
+    </fieldset>
+    
+  <div class="separator-heading">Admin?</div>
+    <fieldset>
+    <%= f.check_box :is_admin %>
+    </fieldset>
+  
+  <%= f.submit 'Create Visitor', :class => 'prominent'  %>
+<% end %>
+</div>

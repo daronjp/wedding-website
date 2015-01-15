@@ -2,10 +2,12 @@
 
 one:
   group: MyString
-  password: MyString
+  password_hash: MyString
+  password_salt: MyString
   is_admin: false
 
 two:
   group: MyString
-  password: MyString
+  password_hash: MyString
+  password_salt: MyString
   is_admin: false

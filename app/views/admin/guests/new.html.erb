@@ -28,9 +28,19 @@
     <%= f.text_field :email %>
     </fieldset>
   
-  <div class="separator-heading">Password</div>
+  <div class="separator-heading">Token</div>
     <fieldset>
     <%= f.text_field :token %>
+    </fieldset>
+    
+<div class="separator-heading">Password</div>
+    <fieldset>
+    <%= f.password_field :password %>
+    </fieldset>
+  
+  <div class="separator-heading">Confirm Password</div>
+    <fieldset>
+    <%= f.password_field :password_confirmation %>
     </fieldset>
     
   <div class="separator-heading">Admin?</div>
