@@ -15,6 +15,7 @@ WeddingWebsite::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   resources :rsvp
   resources :sessions
+  resources :visitors
   #resources :guests
   
   #match "/admin" => "admin/home#index", :as => 'admin', :format => :html

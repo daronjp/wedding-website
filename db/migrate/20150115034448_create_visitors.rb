@@ -1,6 +1,6 @@
-class CreateAuthenticates < ActiveRecord::Migration
+class CreateVisitors < ActiveRecord::Migration
   def change
-    create_table :authenticates do |t|
+    create_table :visitors do |t|
       t.string :group
       t.string :password
       t.boolean :is_admin

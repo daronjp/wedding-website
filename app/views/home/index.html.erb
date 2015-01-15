@@ -12,14 +12,12 @@
   You are logged in!
   <% else %>
       
-  <%= form_tag sessions_path do %>
+  <%= form_tag visitors_path do %>
+
     <p>
-      <%= text_field_tag :email, params[:email], :placeholder => 'Email' %>
+      <%= password_field_tag(:password, "", placeholder: "Password") %> <%= submit_tag "Log in" %>
     </p>
-    <p>
-      <%= password_field_tag(:password, "", placeholder: "Password") %>
-    </p>
-    <%= submit_tag "Log in" %>
+    
   <% end %>
   
 <% end %>
