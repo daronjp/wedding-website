@@ -1,0 +1,15 @@
+<div class="hero-unit">
+    <h1 class="headline large">Authenticate Account</h1>
+
+    <%= form_for [:admin, @guest] do |f| %>
+    
+        <div class="separator-heading">First Name</div>
+        
+        <fieldset>
+            <%= f.text_field :given_name %>
+        </fieldset>
+        
+        <%= f.submit 'Create Guest', :class => 'prominent'  %>
+    <% end %>
+
+</div>

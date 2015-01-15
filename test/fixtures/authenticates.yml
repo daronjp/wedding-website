@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  group: MyString
+  password: MyString
+  is_admin: false
+
+two:
+  group: MyString
+  password: MyString
+  is_admin: false

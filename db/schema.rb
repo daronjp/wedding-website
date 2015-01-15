@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150110233256) do
+ActiveRecord::Schema.define(:version => 20150115032112) do
+
+  create_table "authenticates", :force => true do |t|
+    t.string   "group"
+    t.string   "password"
+    t.boolean  "is_admin"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "guests", :force => true do |t|
     t.string   "email"
