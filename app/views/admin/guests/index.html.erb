@@ -1,0 +1,23 @@
+<div class="hero-unit">
+  <h1 class="headline large">Guests</h1>
+  <p></p>
+  
+  <table>
+    <tr>
+      <th>Given Name</th>
+      <th>Family Name</th>
+      <th>Email</th>
+      <th>Admin</th>
+    </tr>
+    <% @guest.each do |q| %>
+      <tr>
+        <td><%= link_to admin_guest_path(q) do %>
+    <%= q.given_name %>
+  <% end %></td>
+        <td><%= q.family_name %></td>
+        <td><%= q.email %></td>
+        <td><%= q.is_admin %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

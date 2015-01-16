@@ -2,33 +2,29 @@
   <h1 class="headline large"><%= @guest.given_name %> <%= @guest.family_name %></h1>
   
   <%= link_to "Guests", admin_guests_path %>
-  <%= link_to "Edit", edit_admin_guest_path(@guest) %>
+  <%= link_to "View", admin_guest_path(@guest) %>
   <p></p>
   <table>
+    <%= form_for :guest, url: admin_guest_path(@guest), method: :put do |f| %>
       <tr>
         <td>Given Name:</td>
-        <td><%= @guest.given_name %></td>
+        <td><%= f.text_field :given_name %></td>
       </tr>
       <tr>
         <td>Family Name:</td>
-        <td><%= @guest.family_name %></td>
+        <td><%= f.text_field :family_name %></td>
       </tr>
       <tr>
         <td>Email:</td>
-        <td><%= @guest.email %></td>
+        <td><%= f.text_field :email %></td>
       </tr>
       <tr>
         <td>Admin:</td>
-        <td><%= @guest.is_admin %></td>
+        <td><%= f.check_box :is_admin %></td>
       </tr>
-      <tr>
-        <td>Logins:</td>
-        <td><%= @guest.logins %></td>
+      <tr><td colspan=2><%= f.submit %></td>
       </tr>
-      <tr>
-        <td>Created:</td>
-        <td><%= @guest.created_at %></td>
-      </tr>
+    <% end %>
   </table>
 
   

@@ -12,6 +12,13 @@
 
     <h1 class="headline large">Admin</h1>
 
+    <table class="condensed-table">
+        <tr>
+            <td><%= link_to "Guests", admin_guests_path %></td>
+            <td><%= link_to "Visitors", admin_visitors_path %></td>
+        </tr>
+    </table>
+    
     <h2>Guest Count: <%= @rsvps.count %></h2>
     <br/>
     <table class="admin table" id="guest_list">

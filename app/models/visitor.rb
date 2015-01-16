@@ -12,7 +12,7 @@ class Visitor < ActiveRecord::Base
   
   
   def self.authenticate(group, password)
-    visitor = find_by_email(group)
+    visitor = find_by_group(group)
     if visitor && visitor.password_hash == BCrypt::Engine.hash_secret(password, visitor.password_salt)
       visitor
     else

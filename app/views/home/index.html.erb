@@ -8,13 +8,14 @@
 <% end %>
 
 
-<% if current_agent %>
+<% if current_visitor %>
   You are logged in!
   <% else %>
       
-  <%= form_tag admin_visitors_path do %>
+  <%= form_tag sessions_path do %>
 
     <p>
+        <%= text_field_tag(:group, "", placeholder: "Group") %>
       <%= password_field_tag(:password, "", placeholder: "Password") %> <%= submit_tag "Log in" %>
     </p>
     

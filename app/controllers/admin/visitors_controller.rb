@@ -1,5 +1,7 @@
 class Admin::VisitorsController < ApplicationController
   
+  before_filter :admin_only
+  
   def new
     @visitor = Visitor.new
   end

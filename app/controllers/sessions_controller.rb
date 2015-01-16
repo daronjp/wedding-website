@@ -6,9 +6,10 @@ class SessionsController < ApplicationController
   end
   
   def create
-    guest = Guest.authenticate(params[:email], params[:password])
-    if guest
-      session[:guest_id] = guest.id
+    visitor = Visitor.authenticate(params[:group], params[:password])
+    if visitor
+      session[:visitor_id] = visitor.id
+      flash[:notice] = "Welcome!"
       redirect_to root_path
     else
       flash[:notice] = "Invalid email or password"
@@ -17,7 +18,7 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-    session[:guest_id] = nil
+    session[:visitor_id] = nil
     redirect_to root_url, :notice => "Logged out!"
   end
   
