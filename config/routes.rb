@@ -24,6 +24,7 @@ WeddingWebsite::Application.routes.draw do
   namespace :admin do
     resources :guests
     resources :visitors
+    resources :entourages
   end
 
   # Sample resource route with options:
@@ -75,6 +76,7 @@ WeddingWebsite::Application.routes.draw do
   match '/inbound_email' => 'home#inbound_email'
   match '/authenticate' => 'home#authenticate'
   match '/admin' => 'admin#index'
+  #match '/admin/wedding_party/show' => 'home#wp'
 
   match '/proofs' => redirect('https://plus.google.com/photos/108015937443484303551/albums/5684281962814805953')
 

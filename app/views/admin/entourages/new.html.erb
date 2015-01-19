@@ -1,0 +1,58 @@
+<div class="indenting">
+<h1>Create New Wedding Party Participant</h1>
+
+<%= form_for [:admin, @entourage] do |f| %>
+  <% if @entourage.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @entourage.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    
+  <div class="separator-heading">Given Name</div>
+    <fieldset>
+    <%= f.text_field :given_name %>
+    </fieldset>
+  
+  <div class="separator-heading">Family Name</div>
+    <fieldset>
+    <%= f.text_field :family_name %>
+    </fieldset>
+    
+  <div class="separator-heading">Role</div>
+    <fieldset>
+    <%= f.text_field :role %>
+    </fieldset>
+    
+  <div class="separator-heading">Relationship</div>
+    <fieldset>
+    <%= f.text_field :relationship %>
+    </fieldset>
+    
+  <div class="separator-heading">Notes</div>
+    <fieldset>
+    <%= f.text_area :notes %>
+    </fieldset>
+    
+  <div class="separator-heading">Photo URL</div>
+    <fieldset>
+    <%= f.text_field :photo %>
+    </fieldset>
+    
+  <div class="separator-heading">Rank</div>
+    <fieldset>
+    <%= f.select(:rank, options_for_select(['1','2','3','4','5'], :selected => @entourage.rank), :include_blank => true) %>
+    </fieldset>
+    
+  <div class="separator-heading">Gender</div>
+    <fieldset>
+    <%= f.select(:gender, options_for_select(['Female', 'Male'], :selected => @entourage.gender), :include_blank => true) %>
+    </fieldset>
+  
+  <%= f.submit 'Create Wedding Party Participant', :class => 'prominent'  %>
+<% end %>
+</div>

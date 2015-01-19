@@ -1,0 +1,42 @@
+<%= link_to 'New Party Member', new_admin_entourage_path %>
+
+
+<% if flash[:notice] %>
+  <%= flash[:notice] %><br>
+<% end %>
+
+<div class=hero-unit>
+  
+  <h1 class=headline>Wedding Party - Admin</h1>
+  <p></p>
+
+<table>
+  <tr>
+    <td>Given Name</td>
+    <td>Family Name</td>
+    <td>Role</td>
+    <td>Relationship</td>
+    <td>Gender</td>
+    <td>Rank</td>
+    <td>Photo</td>
+    <td>Notes</td>
+  </tr>
+
+  <% @entourage.each do |entourage| %>
+    <tr>
+      <td><%= link_to edit_admin_entourage_path(entourage) do %>
+    <%= entourage.given_name %>
+  <% end %></td>
+      <td><%= entourage.family_name %></td>
+      <td><%= entourage.role %></td>
+      <td><%= entourage.relationship %></td>
+      <td><%= entourage.gender %></td>
+      <td><%= entourage.rank %></td>
+      <td><%= entourage.photo %></td>
+      <td><%= entourage.notes %></td>
+    </tr>
+  <% end %>
+
+</table>
+
+</div>
