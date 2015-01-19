@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  given_name: MyString
+  family_name: MyString
+  role: MyString
+  notes: MyText
+  relationship: MyString
+
+two:
+  given_name: MyString
+  family_name: MyString
+  role: MyString
+  notes: MyText
+  relationship: MyString
