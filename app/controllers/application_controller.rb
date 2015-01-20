@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
   def admin_only
     if current_visitor.is_admin
     else
-      redirect_to :back, :flash => { :not_authorized => "Page blocked!" }
+      redirect_to root_path, :flash => { :not_authorized => "Page blocked!" }
     end  
   end
   

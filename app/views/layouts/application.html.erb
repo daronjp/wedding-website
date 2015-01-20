@@ -34,7 +34,8 @@
         <div class="container">
             <a class="brand <%= is_active?("home#index") %>" href="/"><span class="headline">Eimee <span class="highlight">&</span> Daron</span></a>
             <ul class="nav">
-                <li class="<%= is_active?("home#wedding_party") %>"><%# link_to "Wedding Party", :controller => "home", :action => "wedding_party" %> <%= link_to "Wedding Party", wedding_party_path %></li>
+                <li class="<%= is_active?("home#wedding_party") %>"><%# link_to "Wedding Party", :controller => "home", :action => "wedding_party" %> <%# link_to "Wedding Party", wedding_party_path %></li>
+                <li><%= link_to 'Wedding Party', :controller => 'entourages', :action => 'index' %></li>
                 <li class="<%= is_active?("home#directions") %>"><%# link_to "Directions", :controller => "home", :action => "directions" %> <%= link_to "Directions", directions_path %></li>
                 <li class="<%= is_active?("home#lodging") %>"><%# link_to "Lodging", :controller => "home", :action => "lodging" %> <%= link_to "Lodging", lodging_path %></li>
                 <!--<li><%= link_to "Pictures", "https://plus.google.com/photos/108015937443484303551/albums/5684211146845674273?authkey=CNnS7rKutNnCJQ", :target => "_blank" %></li>-->
@@ -49,6 +50,7 @@
                 <% if current_visitor %>
                     <li><%= link_to "Log out", log_out_path %></li>
                 <% end %>
+                
             </ul>
         </div>
     </div>

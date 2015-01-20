@@ -1,0 +1,25 @@
+<div class=hero-unit>
+  
+  <h1 class=headline>Wedding Party</h1>
+  <p></p>
+
+<table>
+  <tr class=alternate>
+    <th>Name</th>
+    <th>Role</th>
+    <th>Relationship</th>
+    <th>Comments</th>
+  </tr>
+
+  <% @entourage.each do |entourage| %>
+    <tr class=alternate>
+      <td><%= entourage.given_name %> <%= entourage.family_name %></td>
+      <td><%= entourage.role %></td>
+      <td><%= entourage.relationship %></td>
+      <td><%= entourage.notes %></td>
+    </tr>
+  <% end %>
+
+</table>
+
+</div>

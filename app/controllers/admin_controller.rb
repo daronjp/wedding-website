@@ -3,7 +3,9 @@ require 'base64'
 class AdminController < ApplicationController
 
   # before_filter :authenticate
-
+  
+  before_filter :admin_only
+  
   def index
     @rsvps = Rsvp.all
   end

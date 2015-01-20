@@ -7,6 +7,10 @@
   <%= flash[:notice] %><br>
 <% end %>
 
+<% if flash[:not_authorized] %>
+  <%= flash[:not_authorized] %><br>
+<% end %>
+
 
 <% if current_visitor %>
   You are logged in!

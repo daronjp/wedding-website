@@ -5,13 +5,14 @@
   <%= flash[:notice] %><br>
 <% end %>
 
+
 <div class=hero-unit>
   
   <h1 class=headline>Wedding Party - Admin</h1>
   <p></p>
 
 <table>
-  <tr>
+  <tr class=alternate>
     <td>Given Name</td>
     <td>Family Name</td>
     <td>Role</td>
@@ -23,7 +24,7 @@
   </tr>
 
   <% @entourage.each do |entourage| %>
-    <tr>
+    <tr class=alternate>
       <td><%= link_to edit_admin_entourage_path(entourage) do %>
     <%= entourage.given_name %>
   <% end %></td>
