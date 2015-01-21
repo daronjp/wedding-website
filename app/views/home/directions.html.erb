@@ -1,40 +1,49 @@
 <!-- Main hero unit for a primary marketing message or call to action -->
 <div class="hero-unit">
-    <h1 class="headline large">Directions</h1>
-
-    <%= image_tag 'armory1.jpg' %>
-
+    <h1 class="headline large">Venue Details</h1><p></p>
+    <center>
+    <table style="width:600px;"><tr><td class=alternate>
+    <center>
+    <h4><font color=black>Our wedding will take place at the Armory in Portland's Pearl District.</font></h4>
+    
+    <p>The Armory
+    <br>128 NW 11th Ave
+    <br>Portland, OR 97209
+        <p></p>
+    
     <h3><%= link_to "About the Armory", "http://www.pcs.org/about-the-armory/", :target => "_blank" %></h3>
+</center>
+</td>
+</tr>
+</table>
+    </center>
+    <%= image_tag 'armory1.jpg', height: 480, width: 325 %>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.299711918988!2d-122.68164460000004!3d45.52417399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54950a02369a5b67%3A0xe43f785badcbd711!2s128+NW+11th+Ave%2C+Portland%2C+OR+97209!5e0!3m2!1sen!2sus!4v1420688868379" width="325" height="480" frameborder="0" style="border:0"></iframe>
+    
     
 </div>
 
 <!-- Example row of columns -->
 <div class="row">
     <div class="span-one-third">
-        <h1>Afar</h1>
-        <h5>Portland International Airport (<%= link_to 'Map', 'https://goo.gl/maps/a9FJ6', :target => "_blank"  %>)</h5>
+        <h2>Portland International Airport (<%= link_to 'Map', 'https://goo.gl/maps/a9FJ6', :target => "_blank"  %>)</h2>
         <p>PDX is approximately 13 miles east of downtown. You can take the <%= link_to 'MAX', 'http://trimet.org/max/', :target => "_blank" %>
         to downtown for $2.50 per person. The trip takes around 30 minutes.</p>
 
     </div>
     <div class="span-one-third">
-        <h1>Close</h1>
-
-        <h5>From Washington (<%= link_to 'Map', 'https://goo.gl/maps/RC3Tz', :target => "_blank"  %>)</h5>
-        <p>Three hour drive from Seattle, WA on I-5</p>
+        <h2>From Washington (<%= link_to 'Map', 'https://goo.gl/maps/RC3Tz', :target => "_blank"  %>)</h2>
+        <p>Only a three hour drive south from Seattle, WA on I-5.</p>
 
 
     </div>
     <div class="span-one-third">
-        <h1>Local</h1>
-        <h5>From Portland Metro</h5>
+        <h2>From Portland Metro</h2>
         <p>The Armory is located in the middle of Portland's Pearl District right on the <%= link_to 'streetcar', 'http://www.portlandstreetcar.org/pdf/map_printable6.pdf', :target => "_new" %>
         line.
         </p>
         <br/>
-        <p><i>The Armory</i></p>
-        <p><i>128 NW 11th Ave</i></p>
-        <p><i>Portland, OR 97209</i></p>
+
 
     </div>
 </div>
@@ -44,10 +53,9 @@
 
 <div class="row">
     <div class="center">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.299711918988!2d-122.68164460000004!3d45.52417399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54950a02369a5b67%3A0xe43f785badcbd711!2s128+NW+11th+Ave%2C+Portland%2C+OR+97209!5e0!3m2!1sen!2sus!4v1420688868379" width="600" height="450" frameborder="0" style="border:0"></iframe>
-        <br/>
 
-        <small><a class="right" href="https://goo.gl/maps/qphwk" target="new">View Larger Map</a></small>
+
+
 
         
     </div>
