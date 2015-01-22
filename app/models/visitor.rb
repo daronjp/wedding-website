@@ -8,7 +8,7 @@ class Visitor < ActiveRecord::Base
   validates_presence_of :group
   validates_uniqueness_of :group
   
-  attr_accessible :group, :password, :is_admin
+  attr_accessible :group, :password, :is_admin, :visit_count
   
   
   def self.authenticate(group, password)
