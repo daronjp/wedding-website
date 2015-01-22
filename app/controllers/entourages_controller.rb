@@ -4,6 +4,11 @@ class EntouragesController < ApplicationController
   
   def index
     @entourage = Entourage.order(:gender, :rank)
+    
+    Galileo.create(:controller => 'entourages',
+                     :view => 'index',
+                     :user_id => session[:visitor_group],
+                     :session => request.session_options[:id])
   end
   
 end

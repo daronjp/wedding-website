@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  controller: MyString
+  view: MyString
+  session: MyString
+  user_id: MyString
+
+two:
+  controller: MyString
+  view: MyString
+  session: MyString
+  user_id: MyString

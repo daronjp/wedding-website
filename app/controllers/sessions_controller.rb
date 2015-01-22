@@ -10,12 +10,19 @@ class SessionsController < ApplicationController
     if visitor
       visitor.increment(:visit_count)
       visitor.save
+      Galileo.create(:controller => 'session',
+                     :view => 'successful_login',
+                     :user_id => params[:group],
+                     :session => request.session_options[:id])
       session[:visitor_id] = visitor.id
+      session[:visitor_group] = visitor.group
       flash[:notice] = "Welcome!"
       redirect_to root_path
     else
       flash[:notice] = "Invalid email or password"
       redirect_to root_path
+      Galileo.create(:controller => 'session',
+                     :view => 'invalid_login')
     end
   end
   

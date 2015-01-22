@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150122031500) do
+ActiveRecord::Schema.define(:version => 20150122044425) do
 
   create_table "entourages", :force => true do |t|
     t.string   "given_name"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(:version => 20150122031500) do
     t.string   "photo"
     t.string   "gender"
     t.integer  "rank"
+  end
+
+  create_table "galileos", :force => true do |t|
+    t.string   "controller"
+    t.string   "view"
+    t.string   "session"
+    t.string   "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "guests", :force => true do |t|
@@ -66,7 +75,6 @@ ActiveRecord::Schema.define(:version => 20150122031500) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "visit_count"
-    t.integer  "bad_logins"
   end
 
 end
