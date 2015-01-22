@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
 
   def registry
+    @honey_url = 'http://honeyfund.com/wedding/eimeeanddaron'
     @target_url = 'http://bit.ly/george_ryan_registry_1'
     @macys_url = 'http://bit.ly/george_ryan_registry_2'
     @pottery_barn_url = 'http://bit.ly/george_ryan_registry_3'

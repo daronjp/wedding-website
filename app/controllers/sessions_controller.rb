@@ -8,6 +8,8 @@ class SessionsController < ApplicationController
   def create
     visitor = Visitor.authenticate(params[:group], params[:password])
     if visitor
+      visitor.increment(:visit_count)
+      visitor.save
       session[:visitor_id] = visitor.id
       flash[:notice] = "Welcome!"
       redirect_to root_path

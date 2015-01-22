@@ -5,27 +5,27 @@
   <%= link_to "Edit", edit_admin_guest_path(@guest) %>
   <p></p>
   <table>
-      <tr>
+      <tr class=alternate>
         <td>Given Name:</td>
         <td><%= @guest.given_name %></td>
       </tr>
-      <tr>
+      <tr class=alternate>
         <td>Family Name:</td>
         <td><%= @guest.family_name %></td>
       </tr>
-      <tr>
+      <tr class=alternate>
         <td>Email:</td>
         <td><%= @guest.email %></td>
       </tr>
-      <tr>
+      <tr class=alternate>
         <td>Admin:</td>
         <td><%= @guest.is_admin %></td>
       </tr>
-      <tr>
+      <tr class=alternate>
         <td>Logins:</td>
         <td><%= @guest.logins %></td>
       </tr>
-      <tr>
+      <tr class=alternate>
         <td>Created:</td>
         <td><%= @guest.created_at %></td>
       </tr>

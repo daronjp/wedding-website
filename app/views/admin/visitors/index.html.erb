@@ -1,0 +1,17 @@
+<div class="hero-unit">
+  <h1 class="headline large">Visitors</h1>
+  <p></p>
+  
+  <table>
+    <tr class=alternate>
+      <th>Group</th>
+      <th>Admin</th>
+    </tr>
+    <% @visitor.each do |q| %>
+      <tr class=alternate>
+        <td><%= q.group %></td>
+        <td><%= q.is_admin %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

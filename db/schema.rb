@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150119183326) do
+ActiveRecord::Schema.define(:version => 20150122031500) do
 
   create_table "entourages", :force => true do |t|
     t.string   "given_name"
@@ -65,6 +65,8 @@ ActiveRecord::Schema.define(:version => 20150119183326) do
     t.boolean  "is_admin"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "visit_count"
+    t.integer  "bad_logins"
   end
 
 end

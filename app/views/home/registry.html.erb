@@ -5,7 +5,15 @@
 
     <table class="wedding_party">
         <tr class="alternate">
-            <td colspan=1 class="wedding_mug"><%= link_to image_tag('target.jpg', :class => 'wedding_mug'), @target_url %></td>
+            <td colspan=1 class="wedding_mug"><%= link_to image_tag('spain.png', :class => 'wedding_mug'), @honey_url, :target => "_honey" %></td>
+            <td colspan=3>
+                <h3>Website: <%= link_to 'Honey Fund', @honey_url, :target => "_blank" %></h3>
+            </td>
+        </tr>
+        
+        
+        <tr class="alternate">
+            <td colspan=1 class="wedding_mug"><%= link_to image_tag('target.jpg', :class => 'wedding_mug'), @target_url, target: "_honey" %></td>
             <td colspan=3>
                 <h3>Website: <%= link_to 'Target', @target_url, :target => "_blank" %></h3>
                 <h3>Store Locator: <%= link_to 'target.com', 'http://sites.target.com/site/en/spot/page.jsp?title=store_locator_new', :target => "_blank" %></h3>

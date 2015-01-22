@@ -17,6 +17,7 @@ class Admin::VisitorsController < ApplicationController
   end
   
   def index
+    @visitor = Visitor.all
   end
   
 end
