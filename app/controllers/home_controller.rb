@@ -30,5 +30,51 @@ class HomeController < ApplicationController
     errors << "Message can't be blank." if params[:message].blank?
     errors
   end
+  
+  def directions
+    
+    Galileo.create(:controller => 'home',
+                     :view => 'directions',
+                     :user_id => session[:visitor_group],
+                     :session => request.session_options[:id])
+    
+  end
+  
+  def index
+    
+    Galileo.create(:controller => 'home',
+                     :view => 'index',
+                     :user_id => session[:visitor_group],
+                     :session => request.session_options[:id])
+    
+  end
+  
+  def lodging
+    
+    Galileo.create(:controller => 'home',
+                     :view => 'lodging',
+                     :user_id => session[:visitor_group],
+                     :session => request.session_options[:id])
+    
+  end
+  
+  def registry
+    
+    Galileo.create(:controller => 'home',
+                     :view => 'registry',
+                     :user_id => session[:visitor_group],
+                     :session => request.session_options[:id])
+    
+  end
+  
+  
+  def wedding_party
+    
+    Galileo.create(:controller => 'home',
+                     :view => 'wedding_party',
+                     :user_id => session[:visitor_group],
+                     :session => request.session_options[:id])
+    
+  end
 
 end

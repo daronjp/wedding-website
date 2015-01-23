@@ -28,6 +28,12 @@ class SessionsController < ApplicationController
   
   def destroy
     session[:visitor_id] = nil
+    
+    Galileo.create(:controller => 'session',
+                     :view => 'logout',
+                     :user_id => session[:visitor_group],
+                     :session => request.session_options[:id])
+    
     redirect_to root_url, :notice => "Logged out!"
   end
   
