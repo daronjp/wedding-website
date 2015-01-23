@@ -70,7 +70,7 @@ WeddingWebsite::Application.routes.draw do
   
   #get '/entourages', to: 'entourages#index', as: 'wedding_party'
 
-  match '/directions' => 'home#directions'
+  match '/details' => 'home#details'
   match '/lodging' => 'home#lodging'
   match '/registry' => 'home#registry'
   match '/rsvp' => 'home#rsvp'
