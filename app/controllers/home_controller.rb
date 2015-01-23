@@ -31,7 +31,7 @@ class HomeController < ApplicationController
     errors
   end
   
-  def directions
+  def details
     
     Galileo.create(:controller => 'home',
                      :view => 'directions',
