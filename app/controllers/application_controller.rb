@@ -18,6 +18,12 @@ class ApplicationController < ActionController::Base
     #if session[:visitor_id]
     if current_visitor
     else
+      
+      Galileo.create(:controller => 'gate_keeper',
+                     :view => 'unauthorized',
+                     :user_id => request.remote_ip,
+                     :session => request.session_options[:id])
+      
       flash[:error] = "You must be logged in to access this section"
       redirect_to root_path
     end  
@@ -27,6 +33,12 @@ class ApplicationController < ActionController::Base
   def admin_only
     if current_visitor.is_admin
     else
+      
+      Galileo.create(:controller => 'admin_only',
+                     :view => 'unauthorized',
+                     :user_id => session[:visitor_group],
+                     :session => request.session_options[:id])
+      
       redirect_to root_path, :flash => { :not_authorized => "Page blocked!" }
     end  
   end
