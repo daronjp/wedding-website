@@ -22,7 +22,7 @@ class Admin::EntouragesController < ApplicationController
   end
   
   def index
-    @entourage = Entourage.order(:gender, :rank)
+    @entourage = Entourage.order(:rank, :gender)
     
     Galileo.create(:controller => 'admin_entourages',
                      :view => 'index',

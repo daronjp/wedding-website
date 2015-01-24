@@ -7,15 +7,22 @@
   <tr class=alternate>
     <th>Name</th>
     <th>Role</th>
-    <th>Relationship</th>
+    <th>Name</th>
+    <th>Role</th>
   </tr>
 
+  <% x = 2 %>
   <% @entourage.each do |entourage| %>
-    <tr class=alternate>
-      <td><%= entourage.given_name %> <%= entourage.family_name %></td>
-      <td><%= entourage.role %></td>
-      <td><%= entourage.relationship %></td>
-    </tr>
+    <% if x % 2 == 0 %>
+      <tr class=alternate>
+        <td><%= entourage.given_name %> <%= entourage.family_name %></td>
+        <td><%= entourage.role %></td>
+    <% else %>
+        <td><%= entourage.given_name %> <%= entourage.family_name %></td>
+        <td><%= entourage.role %></td>
+      </tr>
+    <% end %>
+    <% x += 1 %>
   <% end %>
 
 </table>
