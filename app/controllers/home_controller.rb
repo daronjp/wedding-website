@@ -41,11 +41,17 @@ class HomeController < ApplicationController
   end
   
   def index
-    
-    Galileo.create(:controller => 'home',
+    unless (defined?(visitor)).nil?
+      Galileo.create(:controller => 'home',
+                       :view => 'index',
+                       :user_id => session[:visitor_group],
+                       :session => request.session_options[:id])
+    else
+      Galileo.create(:controller => 'home',
                      :view => 'index',
-                     :user_id => session[:visitor_group],
+                     :user_id => request.remote_ip,
                      :session => request.session_options[:id])
+    end
     
   end
   
