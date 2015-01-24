@@ -32,7 +32,8 @@ class HomeController < ApplicationController
   end
   
   def details
-    
+    @honey_url = 'http://honeyfund.com/wedding/eimeeanddaron'
+    @registry_url = 'http://www.myregistry.com/wedding-registry/Eimee-Rivera-Daron-Peugh-Portland-OR/797211'
     Galileo.create(:controller => 'home',
                      :view => 'directions',
                      :user_id => session[:visitor_group],
@@ -41,17 +42,11 @@ class HomeController < ApplicationController
   end
   
   def index
-    unless (defined?(visitor)).nil?
+    
       Galileo.create(:controller => 'home',
                        :view => 'index',
                        :user_id => session[:visitor_group],
                        :session => request.session_options[:id])
-    else
-      Galileo.create(:controller => 'home',
-                     :view => 'index',
-                     :user_id => request.remote_ip,
-                     :session => request.session_options[:id])
-    end
     
   end
   
@@ -81,6 +76,10 @@ class HomeController < ApplicationController
                      :user_id => session[:visitor_group],
                      :session => request.session_options[:id])
     
+  end
+  
+  def directions
+    render :layout => "map"
   end
 
 end
