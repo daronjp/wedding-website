@@ -2,7 +2,6 @@ class HomeController < ApplicationController
 
   def registry
     @honey_url = 'http://honeyfund.com/wedding/eimeeanddaron'
-    @target_url = 'http://bit.ly/george_ryan_registry_1'
     @macys_url = 'http://bit.ly/george_ryan_registry_2'
     @pottery_barn_url = 'http://bit.ly/george_ryan_registry_3'
     @amazon_url = 'http://amzn.to/george_ryan_registry'
@@ -34,6 +33,7 @@ class HomeController < ApplicationController
   def details
     @honey_url = 'http://honeyfund.com/wedding/eimeeanddaron'
     @registry_url = 'http://www.myregistry.com/wedding-registry/Eimee-Rivera-Daron-Peugh-Portland-OR/797211'
+    @glassybaby_url = 'http://glassybaby.com/registry/24396'
     Galileo.create(:controller => 'home',
                      :view => 'directions',
                      :user_id => session[:visitor_group],
@@ -80,6 +80,13 @@ class HomeController < ApplicationController
   
   def directions
     render :layout => "map"
+  end
+  
+  def hashtags
+    Instagram.configure do |config|
+      config.client_id = "5e2d29b639fb4fb2a527374697bf7dd3"
+      config.client_secret = "a9f8bae7b40e4fa589e64946c04318e6"
+    end
   end
 
 end
