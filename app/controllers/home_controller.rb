@@ -83,10 +83,10 @@ class HomeController < ApplicationController
   end
   
   def hashtags
-    Instagram.configure do |config|
-      config.client_id = "5e2d29b639fb4fb2a527374697bf7dd3"
-      config.client_secret = "a9f8bae7b40e4fa589e64946c04318e6"
-    end
+    #Instagram.configure do |config|
+    #  config.client_id = "5e2d29b639fb4fb2a527374697bf7dd3"
+    #  config.client_secret = "a9f8bae7b40e4fa589e64946c04318e6"
+    #end
   end
 
 end

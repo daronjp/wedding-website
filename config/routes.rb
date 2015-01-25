@@ -69,7 +69,7 @@ WeddingWebsite::Application.routes.draw do
   get "log_in" => "sessions#new", :as => "log_in"
   
   #get '/entourages', to: 'entourages#index', as: 'wedding_party'
-
+  match '/hashtags' => 'home#hashtags'
   match '/details' => 'home#details'
   match '/lodging' => 'home#lodging'
   match '/registry' => 'home#registry'
