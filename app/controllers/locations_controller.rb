@@ -1,5 +1,7 @@
 class LocationsController < ApplicationController
   
+  before_filter :gate_keeper
+  
   def index
     @outdoors = Location.where(:category => 'Outdoors/Entertainment').order(:description)
     @food = Location.where(:category => 'Food').order(:description)
