@@ -24,12 +24,12 @@
   
   <div class="separator-heading">Neighborhood</div>
     <fieldset>
-    <%= f.select(:neighborhood, options_for_select(['Eastside', 'Northwest'], :selected => @location.neighborhood), :include_blank => true) %>
+    <%= f.select(:neighborhood, options_for_select(['Eastside', 'Westside'], :selected => @location.neighborhood), :include_blank => true) %>
     </fieldset>
     
   <div class="separator-heading">Type</div>
     <fieldset>
-    <%= f.select(:category, options_for_select(['Breakfast', 'Lunch', 'Dinner', 'Bar', 'Outdoors', 'Dessert', 'Entertainment'], :selected => @location.category), :include_blank => true) %>
+    <%= f.select(:category, options_for_select(['Breakfast', 'Lunch', 'Dinner', 'Bar', 'Outdoors', 'Dessert', 'Entertainment', 'Coffee'], :selected => @location.category), :include_blank => true) %>
     </fieldset>
     
   <div class="separator-heading">Website</div>
