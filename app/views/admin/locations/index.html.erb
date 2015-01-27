@@ -1,0 +1,38 @@
+<% if flash[:notice] %>
+  <%= flash[:notice] %><br>
+<% end %>
+
+
+<div class=hero-unit>
+  
+  <h1 class=headline>Entertainment - Admin</h1>
+  <p></p>
+  
+
+<table>
+  <tr class=alternate>
+    <td>Name</td>
+    <td>Neighborhood</td>
+    <td>Type</td>
+    <td>Website</td>
+    <td>Image</td>
+    <td>Notes</td>
+  </tr>
+
+  <% @location.each do |location| %>
+    <tr class=alternate>
+      <td><%= link_to edit_admin_location_path(location) do %>
+    <%= location.description %>
+  <% end %></td>
+      <td><%= location.neighborhood %></td>
+      <td><%= location.category %></td>
+      <td><%= location.website %></td>
+      <td><%= location.website %></td>
+      <td><%= location.notes %></td>
+    </tr>
+  <% end %>
+
+</table>
+
+<h3><%= link_to 'New Location', new_admin_location_path %></h3>
+</div>

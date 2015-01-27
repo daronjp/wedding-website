@@ -1,0 +1,50 @@
+<div class="indenting">
+<h1>Create Entertainment Location</h1>
+
+<%= form_for [:admin, @location] do |f| %>
+  <% if @location.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @location.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    
+  <div class="separator-heading">Merchant Name</div>
+    <fieldset>
+    <%= f.text_field :description %>
+    </fieldset>
+  
+  <div class="separator-heading">Neighborhood</div>
+    <fieldset>
+    <%= f.select(:neighborhood, options_for_select(['Eastside', 'Northwest'], :selected => @location.neighborhood), :include_blank => true) %>
+    </fieldset>
+    
+  <div class="separator-heading">Type</div>
+    <fieldset>
+    <%= f.select(:category, options_for_select(['Breakfast', 'Lunch', 'Dinner', 'Bar', 'Outdoors', 'Dessert', 'Entertainment'], :selected => @location.category), :include_blank => true) %>
+    </fieldset>
+    
+  <div class="separator-heading">Website</div>
+    <fieldset>
+    <%= f.text_field :website %>
+    </fieldset>
+    
+  <div class="separator-heading">Image</div>
+    <fieldset>
+    <%= f.text_field :image %>
+    </fieldset>
+    
+  <div class="separator-heading">Notes</div>
+    <fieldset>
+    <%= f.text_area :notes %>
+    </fieldset>
+    
+
+  
+  <%= f.submit 'Create Entertainment Location', :class => 'prominent'  %>
+<% end %>
+</div>

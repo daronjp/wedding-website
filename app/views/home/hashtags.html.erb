@@ -1,4 +1,4 @@
-require 'instagram'
+
 
 
 
@@ -6,8 +6,15 @@ require 'instagram'
 <div class="hero-unit">
     <h1 class="headline large">#hashtag</h1>
     
+    <%= image_tag @me[0].profile_picture %>
     
-    <iframe src="http://snapwidget.com/in/?h=c2VhaGF3a3N8aW58MTI1fDN8M3x8bm98NXxub25lfG9uU3RhcnR8eWVzfG5v&ve=240115" title="Instagram Widget" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:390px; height:390px"></iframe>
-
+    <% x = 0 %>
+    <% while x < 5 %>
+        <%= image_tag @sea[x].images.standard_resolution.url %><br>
+        <% x += 1 %>
+    <% end %>
+    
+    <%= @pop %>
+    
 </div>
 

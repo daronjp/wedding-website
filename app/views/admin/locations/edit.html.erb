@@ -1,0 +1,54 @@
+<div class="hero-unit">
+  <h1 class="headline large"><%= @location.description %></h1>
+  
+  <%= link_to "Entertainment Locations", admin_locations_path %>
+  <p></p>
+ 
+ <%# form_for :entrouage, url: admin_location_path(@location), method: :put do |f| %> 
+    <%= form_for [:admin, @location] do |f| %>
+  <% if @location.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @location.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    
+  <div class="separator-heading">Merchant Name</div>
+    <fieldset>
+    <%= f.text_field :description %>
+    </fieldset>
+  
+  <div class="separator-heading">Neighborhood</div>
+    <fieldset>
+    <%= f.select(:neighborhood, options_for_select(['Eastside', 'Northwest'], :selected => @location.neighborhood), :include_blank => true) %>
+    </fieldset>
+    
+  <div class="separator-heading">Type</div>
+    <fieldset>
+    <%= f.select(:category, options_for_select(['Breakfast', 'Lunch', 'Dinner', 'Bar', 'Outdoors', 'Dessert', 'Entertainment'], :selected => @location.category), :include_blank => true) %>
+    </fieldset>
+    
+  <div class="separator-heading">Website</div>
+    <fieldset>
+    <%= f.text_field :website %>
+    </fieldset>
+    
+  <div class="separator-heading">Image</div>
+    <fieldset>
+    <%= f.text_field :image %>
+    </fieldset>
+    
+  <div class="separator-heading">Notes</div>
+    <fieldset>
+    <%= f.text_area :notes %>
+    </fieldset>
+  
+  <%= f.submit 'Update Entertainment Location', :class => 'prominent'  %>
+<% end %>
+
+  
+</div>

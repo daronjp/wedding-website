@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150122044425) do
+ActiveRecord::Schema.define(:version => 20150127020407) do
 
   create_table "entourages", :force => true do |t|
     t.string   "given_name"
@@ -50,6 +50,17 @@ ActiveRecord::Schema.define(:version => 20150122044425) do
 
   create_table "hotels", :force => true do |t|
     t.string "name"
+  end
+
+  create_table "locations", :force => true do |t|
+    t.string   "description"
+    t.string   "neighborhood"
+    t.string   "category"
+    t.text     "notes"
+    t.string   "website"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "rsvps", :force => true do |t|

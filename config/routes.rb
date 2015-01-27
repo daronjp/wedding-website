@@ -26,6 +26,7 @@ WeddingWebsite::Application.routes.draw do
     resources :guests
     resources :visitors
     resources :entourages
+    resources :locations
   end
 
   # Sample resource route with options:
