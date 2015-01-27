@@ -25,19 +25,7 @@
         <% end %>
     </table>
     
-    <h2 class="headline">Lunch</h2>
-    
-    <table>
-        <% @lunch.each do |lunch| %>
-            <tr class=alternate>
-                <td width=20%><%= link_to lunch.description, lunch.website, :target => 'blank' %></td>
-                <td width=20%><%= lunch.neighborhood %></td>
-                <td><%= lunch.notes %></td>
-            </tr>
-        <% end %>
-    </table>
-    
-    <h2 class="headline">Dinner</h2>
+    <h2 class="headline">Lunch & Dinner</h2>
     
     <table>
         <% @dinner.each do |dinner| %>
@@ -73,7 +61,7 @@
         <% end %>
     </table>
     
-    <h2 class="headline">Outdoors</h2>
+    <h2 class="headline">Outdoors & Entertainment</h2>
     
     <table>
         <% @outdoors.each do |outdoors| %>
@@ -84,18 +72,5 @@
             </tr>
         <% end %>
     </table>
-    
-    <h2 class="headline">Entertainment</h2>
-    
-    <table>
-        <% @entertainment.each do |entertainment| %>
-            <tr class=alternate>
-                <td width=20%><%= link_to entertainment.description, entertainment.website, :target => 'blank' %></td>
-                <td width=20%><%= entertainment.neighborhood %></td>
-                <td><%= entertainment.notes %></td>
-            </tr>
-        <% end %>
-    </table>
-    
     
 </div>
