@@ -29,7 +29,7 @@
     
   <div class="separator-heading">Type</div>
     <fieldset>
-    <%= f.select(:category, options_for_select(['Breakfast', 'Lunch/Dinner', 'Bar', 'Dessert', 'Outdoors/Entertainment', 'Coffee'], :selected => @location.category), :include_blank => true) %>
+    <%= f.select(:category, options_for_select(['Food', 'Bar', 'Outdoors/Entertainment', 'Coffee'], :selected => @location.category), :include_blank => true) %>
     </fieldset>
     
   <div class="separator-heading">Website</div>

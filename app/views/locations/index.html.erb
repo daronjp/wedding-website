@@ -1,5 +1,5 @@
 <div class="hero-unit">
-    <h1 class="headline large">Entertainment</h1>
+    <h1 class="headline large">Places to Visit</h1>
     
     <h2 class="headline">Coffee</h2>
     
@@ -13,38 +13,14 @@
         <% end %>
     </table>
     
-    <h2 class="headline">Breakfast</h2>
+    <h2 class="headline">Food</h2>
     
     <table>
-        <% @breakfast.each do |breakfast| %>
+        <% @food.each do |food| %>
             <tr class=alternate>
-                <td width=20%><%= link_to breakfast.description, breakfast.website, :target => 'blank' %></td>
-                <td width=20%><%= breakfast.neighborhood %></td>
-                <td><%= breakfast.notes %></td>
-            </tr>
-        <% end %>
-    </table>
-    
-    <h2 class="headline">Lunch & Dinner</h2>
-    
-    <table>
-        <% @dinner.each do |dinner| %>
-            <tr class=alternate>
-                <td width=20%><%= link_to dinner.description, dinner.website, :target => 'blank' %></td>
-                <td width=20%><%= dinner.neighborhood %></td>
-                <td><%= dinner.notes %></td>
-            </tr>
-        <% end %>
-    </table>
-    
-    <h2 class="headline">Dessert</h2>
-    
-    <table>
-        <% @dessert.each do |dessert| %>
-            <tr class=alternate>
-                <td width=20%><%= link_to dessert.description, dessert.website, :target => 'blank' %></td>
-                <td width=20%><%= dessert.neighborhood %></td>
-                <td><%= dessert.notes %></td>
+                <td width=20%><%= link_to food.description, food.website, :target => 'blank' %></td>
+                <td width=20%><%= food.neighborhood %></td>
+                <td><%= food.notes %></td>
             </tr>
         <% end %>
     </table>
