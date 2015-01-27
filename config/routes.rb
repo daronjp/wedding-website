@@ -16,6 +16,7 @@ WeddingWebsite::Application.routes.draw do
   resources :rsvp
   resources :sessions
   resources :entourages
+  resources :locations
   #resources :guests
   
   #match "/admin" => "admin/home#index", :as => 'admin', :format => :html

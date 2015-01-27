@@ -1,0 +1,101 @@
+<div class="hero-unit">
+    <h1 class="headline large">Entertainment</h1>
+    
+    <h2 class="headline">Coffee</h2>
+    
+    <table>
+        <% @coffee.each do |coffee| %>
+            <tr class=alternate>
+                <td width=20%><%= link_to coffee.description, coffee.website, :target => 'blank' %></td>
+                <td width=20%><%= coffee.neighborhood %></td>
+                <td><%= coffee.notes %></td>
+            </tr>
+        <% end %>
+    </table>
+    
+    <h2 class="headline">Breakfast</h2>
+    
+    <table>
+        <% @breakfast.each do |breakfast| %>
+            <tr class=alternate>
+                <td width=20%><%= link_to breakfast.description, breakfast.website, :target => 'blank' %></td>
+                <td width=20%><%= breakfast.neighborhood %></td>
+                <td><%= breakfast.notes %></td>
+            </tr>
+        <% end %>
+    </table>
+    
+    <h2 class="headline">Lunch</h2>
+    
+    <table>
+        <% @lunch.each do |lunch| %>
+            <tr class=alternate>
+                <td width=20%><%= link_to lunch.description, lunch.website, :target => 'blank' %></td>
+                <td width=20%><%= lunch.neighborhood %></td>
+                <td><%= lunch.notes %></td>
+            </tr>
+        <% end %>
+    </table>
+    
+    <h2 class="headline">Dinner</h2>
+    
+    <table>
+        <% @dinner.each do |dinner| %>
+            <tr class=alternate>
+                <td width=20%><%= link_to dinner.description, dinner.website, :target => 'blank' %></td>
+                <td width=20%><%= dinner.neighborhood %></td>
+                <td><%= dinner.notes %></td>
+            </tr>
+        <% end %>
+    </table>
+    
+    <h2 class="headline">Dessert</h2>
+    
+    <table>
+        <% @dessert.each do |dessert| %>
+            <tr class=alternate>
+                <td width=20%><%= link_to dessert.description, dessert.website, :target => 'blank' %></td>
+                <td width=20%><%= dessert.neighborhood %></td>
+                <td><%= dessert.notes %></td>
+            </tr>
+        <% end %>
+    </table>
+    
+    <h2 class="headline">Drinks</h2>
+    
+    <table>
+        <% @drinks.each do |drinks| %>
+            <tr class=alternate>
+                <td width=20%><%= link_to drinks.description, drinks.website, :target => 'blank' %></td>
+                <td width=20%><%= drinks.neighborhood %></td>
+                <td><%= drinks.notes %></td>
+            </tr>
+        <% end %>
+    </table>
+    
+    <h2 class="headline">Dinner</h2>
+    
+    <table>
+        <% @outdoors.each do |outdoors| %>
+            <tr class=alternate>
+                <td width=20%><%= link_to outdoors.description, outdoors.website, :target => 'blank' %></td>
+                <td width=20%><%= outdoors.neighborhood %></td>
+                <td><%= outdoors.notes %></td>
+            </tr>
+        <% end %>
+    </table>
+    
+    <h2 class="headline">Entertainment</h2>
+    
+    <table>
+        <% @entertainment.each do |entertainment| %>
+            <tr class=alternate>
+                <td width=20%><%= link_to entertainment.description, entertainment.website, :target => 'blank' %></td>
+                <td width=20%><%= entertainment.neighborhood %></td>
+                <td><%= entertainment.notes %></td>
+            </tr>
+        <% end %>
+    </table>
+    
+    
+</div>
