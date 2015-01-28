@@ -20,7 +20,7 @@
   
   <div class="separator-heading">Neighborhood</div>
     <fieldset>
-    <%= f.select(:neighborhood, options_for_select(['Eastside', 'Westside'], :selected => @location.neighborhood), :include_blank => true) %>
+    <%= f.select(:neighborhood, options_for_select(['Eastside', 'Westside', 'Eastside & Westside'], :selected => @location.neighborhood), :include_blank => true) %>
     </fieldset>
     
   <div class="separator-heading">Type</div>
