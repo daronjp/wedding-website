@@ -5,10 +5,11 @@
 
 <div class="hero-unit">
     <h1 class="headline large">#peughveras8815</h1>
+    <center>The latest photos tagged on Instagram</center>
     <p></p>
     <% if @peughvera.count > 0 %>
         <% x = 0 %>
-        <% while x < 1 %>
+        <% while x < @peughvera.count %>
             <%= image_tag @peughvera[x].images.standard_resolution.url %><br>
             <% x += 1 %>
         <% end %>
