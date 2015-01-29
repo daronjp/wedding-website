@@ -4,17 +4,18 @@
 
 
 <div class="hero-unit">
-    <h1 class="headline large">#hashtag</h1>
-    
-    <%= image_tag @me[0].profile_picture %>
-    
-    <% x = 0 %>
-    <% while x < 5 %>
-        <%= image_tag @sea[x].images.standard_resolution.url %><br>
-        <% x += 1 %>
+    <h1 class="headline large">#peughveras8815</h1>
+    <p></p>
+    <%= @peughvera.count %>
+    <% if @peughvera.count > 0 %>
+        <% x = 0 %>
+        <% while x < 1 %>
+            <%= image_tag @peughvera[x].images.standard_resolution.url %><br>
+            <% x += 1 %>
+        <% end %>
+    <% else %>
+        <h2><font color=black>Sad Cloud :(</font></h2>
     <% end %>
-    
-    <%= @pop %>
     
 </div>
 
