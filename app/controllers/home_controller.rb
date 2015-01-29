@@ -103,6 +103,11 @@ class HomeController < ApplicationController
     #  html << "<img src='#{media_item.images.thumbnail.url}'>"
     #end
     #html
+    
+    Galileo.create(:controller => 'home',
+                     :view => 'hashtags',
+                     :user_id => session[:visitor_group],
+                     :session => request.session_options[:id])
 
 
 
