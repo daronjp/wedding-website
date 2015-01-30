@@ -5,18 +5,32 @@
 
 <div class="hero-unit">
     <h1 class="headline large">#peughveras8815</h1>
-    <center>The latest photos tagged on Instagram</center>
+    <center><font color=white>The latest photos tagged on Instagram</font></center>
     <p></p>
+        <h3>
+            <font color=white>
     <% if @peughvera.count > 0 %>
         <% x = 0 %>
         <% while x < @peughvera.count %>
             <%= image_tag @peughvera[x].images.standard_resolution.url %><br>
-            <%# @peughvera[x].likes.count %><br>
+            <%= Time.at(@peughvera[x].caption.created_time.to_i).to_datetime.strftime("%m/%d/%y") %>
+            <% if @peughvera[x].location.name %>
+                - <%= @peughvera[x].location.name %>
+            <% end %>  <br>
+            <%= @peughvera[x].caption.from.username %> - <%= @peughvera[x].caption.text %><br>
+            <% y = 0 %>
+            <% while y < @peughvera[x].comments[:count] %>
+                <%= @peughvera[x].comments.data[y].from.username %> - <%= @peughvera[x].comments.data[y].text %><br>
+                <% y += 1 %>
+            <% end %>
             <% x += 1 %>
         <% end %>
     <% else %>
         <h2><font color=black>Sad Cloud :(</font></h2>
     <% end %>
+    
+    </font>
+            </h3>
     
     <font color=white><%# @peughvera %></font>
     
