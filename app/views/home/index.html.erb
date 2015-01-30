@@ -1,14 +1,14 @@
 <!-- Main hero unit for a primary marketing message or call to action -->
 <% if flash[:error] %>
-  <%= flash[:error] %><br>
+  <h2><b><%= flash[:error] %></b></h2><br>
 <% end %>
 
 <% if flash[:notice] %>
-  <%= flash[:notice] %><br>
+  <b><%= flash[:notice] %></b><br>
 <% end %>
 
 <% if flash[:not_authorized] %>
-  <%= flash[:not_authorized] %><br>
+  <b><%= flash[:not_authorized] %></b><br>
 <% end %>
 
 
