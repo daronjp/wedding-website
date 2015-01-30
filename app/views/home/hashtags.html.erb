@@ -11,11 +11,14 @@
         <% x = 0 %>
         <% while x < @peughvera.count %>
             <%= image_tag @peughvera[x].images.standard_resolution.url %><br>
+            <%# @peughvera[x].likes.count %><br>
             <% x += 1 %>
         <% end %>
     <% else %>
         <h2><font color=black>Sad Cloud :(</font></h2>
     <% end %>
+    
+    <font color=white><%= @peughvera %></font>
     
 </div>
 

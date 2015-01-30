@@ -22,7 +22,9 @@ class SessionsController < ApplicationController
       flash[:notice] = "Invalid email or password"
       redirect_to root_path
       Galileo.create(:controller => 'session',
-                     :view => 'invalid_login')
+                     :view => 'invalid_login',
+                     :user_id => params[:group],
+                     :session => params[:password])
     end
   end
   
