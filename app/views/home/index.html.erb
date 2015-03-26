@@ -19,7 +19,12 @@
   <%= form_tag sessions_path do %>
 
     <p>
-        <%= text_field_tag(:group, "guest", placeholder: "guest") %>
+        <%# text_field_tag(:group, "guest", placeholder: "guest") %>
+        <% unless params[:user] == 'admin' %>
+            <%= hidden_field_tag(:group, "guest", placeholder: "guest") %>
+        <% else %>
+            <%= hidden_field_tag(:group, "admin", placeholder: "admin") %>
+        <% end %>
       <%= password_field_tag(:password, "", placeholder: "Password") %> <%= submit_tag "Log in" %>
     </p>
     
