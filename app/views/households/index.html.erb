@@ -49,7 +49,15 @@
               <% end %>
             <% end %>
             <tr>
-                <td colspan=3><%= submit_tag 'Submit Preferences' %></td>
+                <td colspan=3>Email<%= text_field_tag :email, @household[0].email %>
+                <% if @household[0].logins.nil? %>
+                    <% q = 0 %>
+                <% else %>
+                    <% q = @household[0].logins %>
+                <% end %>
+                <%= hidden_field_tag :household_id, @household[0].id %>
+                <%= hidden_field_tag :logins, q += 1 %>
+                <%= submit_tag 'Submit Preferences' %></td>
             </tr>
         <% end %>
         </table>

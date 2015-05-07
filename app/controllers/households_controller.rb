@@ -23,6 +23,7 @@ class HouseholdsController < ApplicationController
   def update_multiple
     #@household = Household.where("lower(household_name) = ? and zip = ?", params[:household_name].downcase, params[:zip])
     Guest.update(params[:guest].keys, params[:guest].values)
+    Household.update(params[:household_id], :email => params[:email], :logins => params[:logins])
     flash[:notice] = "Options updated!"
     redirect_to households_path(:household_name => params[:household_name], :zip => params[:zip])
   end
