@@ -1,0 +1,27 @@
+<div class="hero-unit">
+  <h1 class="headline large"><%= @household.household_name %></h1>
+  
+  <%= link_to "Households", admin_households_path %>
+  <%= link_to "Edit", edit_admin_household_path(@household) %>
+  <p></p>
+  <table>
+      <tr class=alternate>
+        <td>Family Name:</td>
+        <td><%= @household.household_name %></td>
+      </tr>
+      <tr class=alternate>
+        <td>Zip:</td>
+        <td><%= @household.zip %></td>
+      </tr>
+      <tr class=alternate>
+        <td>Seats:</td>
+        <td><%= @household.seats %></td>
+      </tr>
+      <tr class=alternate>
+        <td>Created:</td>
+        <td><%= @household.created_at %></td>
+      </tr>
+  </table>
+
+  
+</div>

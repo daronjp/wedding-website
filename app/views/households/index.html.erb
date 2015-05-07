@@ -1,0 +1,60 @@
+<h1> Login </h1>
+
+<table>
+    <%= form_tag("/households", method: "get") do %>
+        <%= label_tag(:household_name, "Last Name:") %>
+        <%= text_field_tag(:household_name) %><br>
+        <%= label_tag(:zip, "Zip:") %><%= text_field_tag(:zip) %>
+        <%= submit_tag("Search") %>
+    <% end %>
+</table>
+
+<% unless @household.nil? %>
+    <% if @household.count > 0 %>
+        Welcome <%= @household[0].household_name %> family!
+    <% else %>
+        Last name and zip code do not match
+    <% end %>
+<% else %>
+    Please input data
+<% end %>
+
+<% unless @guests.nil? %>
+    <% if @guests.count > 0 %>
+        <table>
+            <tr>
+                <td>Guest Name</td>
+                <td colspan=2><center>Attending</center></td>
+                <td>Food</td>
+            </tr>
+        <%= form_for :household, method: :put do %>
+            <%= hidden_field_tag(:household_name, params[:household_name]) %>
+            <%= hidden_field_tag(:zip, params[:zip]) %>
+            <% @guests.each do |guest| %>
+              <%= fields_for "guest[]", guest do |guest_fields| %>
+                <tr>
+                    <%= guest_fields.hidden_field( :id, :value => guest.id) %>
+                    <td><%= guest.given_name %> <%= guest.family_name %></td>
+                    
+                    <td>
+                        Yes &nbsp;&nbsp;<%= guest_fields.radio_button( :rsvp, 'true') %>
+                        
+                    </td>
+                    
+                    <td>
+                        No &nbsp;&nbsp;<%= guest_fields.radio_button( :rsvp, 'false') %>
+                    </td>
+                    <td><%= guest_fields.select(:food, options_for_select(['Ham', 'Corn', 'Salmon', 'Bread'], :selected => guest.food), :include_blank => true) %></td>
+                </tr>
+              <% end %>
+            <% end %>
+            <tr>
+                <td colspan=3><%= submit_tag 'Submit Preferences' %></td>
+            </tr>
+        <% end %>
+        </table>
+        <% if flash[:notice] %>
+            <div class="notice"><%= flash[:notice] %></div>
+        <% end %>
+    <% end %>
+<% end %>

@@ -12,6 +12,8 @@ gem 'instagram'
 
 gem 'rake', '~> 10.4.2'
 
+gem 'rails_legacy_mapper'
+
 gem 'heroku'
 
 gem 'therubyracer', '~> 0.12.1'

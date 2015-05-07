@@ -1,0 +1,33 @@
+<div class="indenting">
+<h1>Create New Household</h1>
+
+<%= form_for [:admin, @household] do |f| %>
+  <% if @household.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @household.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    
+  <div class="separator-heading">Household Name</div>
+    <fieldset>
+    <%= f.text_field :household_name %>
+    </fieldset>
+    
+  <div class="separator-heading">Zip</div>
+    <fieldset>
+    <%= f.text_field :zip %>
+    </fieldset>
+    
+  <div class="separator-heading">Seats</div>
+    <fieldset>
+    <%= f.select :seats, @seq %>
+    </fieldset>
+
+  <%= f.submit 'Create Household', :class => 'prominent'  %>
+<% end %>
+</div>

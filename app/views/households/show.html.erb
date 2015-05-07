@@ -1,0 +1,19 @@
+<h1> Login </h1>
+
+<%= form_for :household, method: :put do %>
+
+  <%= @guests.each do |guest| %>
+
+
+    <%= fields_for "guest[]", guest do |guest_fields| %>
+      <%= guest.given_name %> <%= guest.family_name %>
+      <%= guest_fields.hidden_field( :id, :value => guest.id) %>
+      <%= guest_fields.check_box( :rsvp, :value => guest.rsvp) %>
+    <br>
+    <% end %>
+  
+  <% end %>
+
+<%= submit_tag 'Update Schedule' %>
+
+<% end %>

@@ -1,0 +1,27 @@
+<div class="hero-unit">
+  <h1 class="headline large"><%= @household.household_name %></h1>
+  
+  <%= link_to "Households", admin_households_path %>
+  <%= link_to "View", admin_household_path(@household) %>
+  <p></p>
+  <table>
+    <%= form_for :household, url: admin_household_path(@household), method: :put do |f| %>
+      <tr>
+        <td>Household Name:</td>
+        <td><%= f.text_field :household_name %></td>
+      </tr>
+      <tr>
+        <td>Zip:</td>
+        <td><%= f.text_field :zip %></td>
+      </tr>
+      <tr>
+        <td>Seats</td>
+        <td><%= f.select :seats, @seq %></td>
+      </tr>
+      <tr><td colspan=2><%= f.submit %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  
+</div>

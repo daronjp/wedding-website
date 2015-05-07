@@ -1,4 +1,4 @@
-WeddingWebsite::Application.routes.draw do
+WeddingWebsite::Application.routes.draw do |map|
   get "admin/index"
 
   # The priority is based upon order of creation:
@@ -17,7 +17,17 @@ WeddingWebsite::Application.routes.draw do
   resources :sessions
   resources :entourages
   resources :locations
+  resources :households
+    
   #resources :guests
+  
+  #map.resources :households, :collection => { :edit_multiple => :post, :update_multiple => :put }
+  
+  #post "households/edit_multiple" => "households#edit_multiple", :as => "edit_multiple"
+  
+  #put "households/:id/edit" => "households#update", :as => "update_household"
+  
+  put "households" => "households#update_multiple", :as => "update_multiple_households"
   
   #match "/admin" => "admin/home#index", :as => 'admin', :format => :html
   
@@ -25,6 +35,7 @@ WeddingWebsite::Application.routes.draw do
   
   namespace :admin do
     resources :guests
+    resources :households
     resources :visitors
     resources :entourages
     resources :locations

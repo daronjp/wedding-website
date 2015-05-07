@@ -22,33 +22,12 @@
     <fieldset>
     <%= f.text_field :family_name %>
     </fieldset>
-  
-  <div class="separator-heading">Email</div>
-    <fieldset>
-    <%= f.text_field :email %>
-    </fieldset>
-  
-  <div class="separator-heading">Token</div>
-    <fieldset>
-    <%= f.text_field :token %>
-    </fieldset>
     
-<div class="separator-heading">Password</div>
+  <div class="separator-heading">Family</div>
     <fieldset>
-    <%= f.password_field :password %>
+    <%= f.collection_select :household_id, @household, :id, :household_name, :prompt => :household_id %> </td></tr>
     </fieldset>
-  
-  <div class="separator-heading">Confirm Password</div>
-    <fieldset>
-    <%= f.password_field :password_confirmation %>
-    </fieldset>
-    
-  <div class="separator-heading">Admin?</div>
-    <fieldset>
-    <%= f.check_box :is_admin %>
-    </fieldset>
-    
-    <%# f.hidden_field :in_cr, :value => true %>
+
   
   <%= f.submit 'Create Guest', :class => 'prominent'  %>
 <% end %>

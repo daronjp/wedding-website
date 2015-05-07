@@ -1,46 +1,46 @@
-class Admin::GuestsController < ApplicationController
+class Admin::HouseholdsController < ApplicationController
   
   before_filter :admin_only
   
   def new
-    @guest = Guest.new
-    @household = Household.select("id, household_name")
+    @household = Household.new
+    @seq=*(1..6)
     
-    Galileo.create(:controller => 'admin_guest',
+    Galileo.create(:controller => 'admin_household',
                      :view => 'new',
                      :user_id => session[:visitor_group],
                      :session => request.session_options[:id])
   end
   
   def create
-    @guest = Guest.new(params[:guest])
+    @household = Household.new(params[:household])
       
-    if @guest.save
+    if @household.save
       
-      Galileo.create(:controller => 'admin_guest',
+      Galileo.create(:controller => 'admin_household',
                      :view => 'create',
                      :user_id => session[:visitor_group],
                      :session => request.session_options[:id])
       
-      redirect_to admin_guests_path, :notice => "Guest Created!"
+      redirect_to admin_households_path, :notice => "Household Created!"
     else
       render "new"
     end
   end
   
   def index
-    @guest = Guest.select("guests.*, households.household_name, households.zip").joins('left join households on guests.household_id = households.id').order(:household_id)
+    @household = Household.all
     
-    Galileo.create(:controller => 'admin_guest',
+    Galileo.create(:controller => 'admin_household',
                      :view => 'index',
                      :user_id => session[:visitor_group],
                      :session => request.session_options[:id])
   end
   
   def show
-    @guest = Guest.find(params[:id])
+    @household = Household.find(params[:id])
     
-    Galileo.create(:controller => 'admin_guest',
+    Galileo.create(:controller => 'admin_household',
                      :view => 'show',
                      :user_id => session[:visitor_group],
                      :session => request.session_options[:id])
@@ -48,31 +48,29 @@ class Admin::GuestsController < ApplicationController
   end
   
   def edit
-    @guest = Guest.find(params[:id])
+    @household = Household.find(params[:id])
+    @seq=*(1..6)
     
-    Galileo.create(:controller => 'admin_guest',
+    Galileo.create(:controller => 'admin_household',
                      :view => 'edit',
                      :user_id => session[:visitor_group],
                      :session => request.session_options[:id])
   end
   
   def update
-    @guest = Guest.find(params[:id])
+    @household = Household.find(params[:id])
     
-    if @guest.update_attributes(params[:guest])
+    if @household.update_attributes(params[:household])
       
-      Galileo.create(:controller => 'admin_guest',
+      Galileo.create(:controller => 'admin_household',
                      :view => 'update',
                      :user_id => session[:visitor_group],
                      :session => request.session_options[:id])
       
-      redirect_to admin_guest_path(@guest)
+      redirect_to admin_household_path(@household)
     else
       render 'edit'
     end
-  end
-  
-  def rsvp
   end
   
 end
