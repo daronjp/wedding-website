@@ -1,68 +1,74 @@
-<h1> Login </h1>
+<div class="hero-unit">
 
-<table>
-    <%= form_tag("/households", method: "get") do %>
-        <%= label_tag(:household_name, "Last Name:") %>
-        <%= text_field_tag(:household_name) %><br>
-        <%= label_tag(:zip, "Zip:") %><%= text_field_tag(:zip) %>
-        <%= submit_tag("Search") %>
-    <% end %>
-</table>
-
-<% unless @household.nil? %>
-    <% if @household.count > 0 %>
-        Welcome <%= @household[0].household_name %> family!
+    <h1 class="headline large"> RSVP </h1>
+    
+    <table>
+        <%= form_tag("/households", method: "get") do %>
+            <%# label_tag(:household_name, "Last Name:") %>
+            <%= text_field_tag(:household_name, "", placeholder: "Last Name") %><br>
+            <%# label_tag(:zip, "Zip:") %><%= text_field_tag(:zip, "", placeholder: 'Zip Code') %><br>
+            <%= submit_tag("Search") %>
+        <% end %>
+    </table>
+    
+    <% @colorwheel = ['0033CC', 'FF0066', '33CC33', '00CCFF', 'FFFFCC', 'FF0000', '99FFCC', 'FF99FF', 'FF9900'] %>
+    
+    <% unless @household.nil? %>
+        <% if @household.count > 0 %>
+            Welcome <%= @household[0].household_name %> family!
+        <% else %>
+            Last name and zip code do not match
+        <% end %>
     <% else %>
-        Last name and zip code do not match
+        Please input data
     <% end %>
-<% else %>
-    Please input data
-<% end %>
-
-<% unless @guests.nil? %>
-    <% if @guests.count > 0 %>
-        <table>
-            <tr>
-                <td>Guest Name</td>
-                <td colspan=2><center>Attending</center></td>
-                <td>Food</td>
-            </tr>
-        <%= form_for :household, method: :put do %>
-            <%= hidden_field_tag(:household_name, params[:household_name]) %>
-            <%= hidden_field_tag(:zip, params[:zip]) %>
-            <% @guests.each do |guest| %>
-              <%= fields_for "guest[]", guest do |guest_fields| %>
-                <tr>
-                    <%= guest_fields.hidden_field( :id, :value => guest.id) %>
-                    <td><%= guest.given_name %> <%= guest.family_name %></td>
-                    
-                    <td>
-                        Yes &nbsp;&nbsp;<%= guest_fields.radio_button( :rsvp, 'true') %>
-                        
-                    </td>
-                    
-                    <td>
-                        No &nbsp;&nbsp;<%= guest_fields.radio_button( :rsvp, 'false') %>
-                    </td>
-                    <td><%= guest_fields.select(:food, options_for_select(['Ham', 'Corn', 'Salmon', 'Bread'], :selected => guest.food), :include_blank => true) %></td>
+    
+    <% unless @guests.nil? %>
+        <% if @guests.count > 0 %>
+            <table class="wedding_party">
+                <tr  class="alternate">
+                    <td><h2>Guest Name</h2></td>
+                    <td colspan=2><center><h2>Attending</h2></center></td>
+                    <td><h2>Food</h2></td>
                 </tr>
-              <% end %>
-            <% end %>
-            <tr>
-                <td colspan=3>Email<%= text_field_tag :email, @household[0].email %>
-                <% if @household[0].logins.nil? %>
-                    <% q = 0 %>
-                <% else %>
-                    <% q = @household[0].logins %>
+            <%= form_for :household, method: :put do %>
+                <%= hidden_field_tag(:household_name, params[:household_name]) %>
+                <%= hidden_field_tag(:zip, params[:zip]) %>
+                <% @guests.each do |guest| %>
+                  <%= fields_for "guest[]", guest do |guest_fields| %>
+                    <tr  class="alternate">
+                        <%= guest_fields.hidden_field( :id, :value => guest.id) %>
+                        <td><h3><%= guest.given_name %> <%= guest.family_name %></h3></td>
+                        
+                        <td>
+                            <center><h3>Yes &nbsp;&nbsp;<%= guest_fields.radio_button( :rsvp, 'true') %></h3></center>
+                            
+                        </td>
+                        
+                        <td>
+                            <center><h3>No &nbsp;&nbsp;<%= guest_fields.radio_button( :rsvp, 'false') %></h3></center>
+                        </td>
+                        <td><%= guest_fields.select(:food, options_for_select(['Ham', 'Corn', 'Salmon', 'Bread'], :selected => guest.food), :include_blank => true) %></td>
+                    </tr>
+                  <% end %>
                 <% end %>
-                <%= hidden_field_tag :household_id, @household[0].id %>
-                <%= hidden_field_tag :logins, q += 1 %>
-                <%= submit_tag 'Submit Preferences' %></td>
-            </tr>
-        <% end %>
-        </table>
-        <% if flash[:notice] %>
-            <div class="notice"><%= flash[:notice] %></div>
+                <tr>
+                    <td colspan=3>Email &nbsp;<%= text_field_tag :email, @household[0].email %>
+                    <% if @household[0].logins.nil? %>
+                        <% q = 0 %>
+                    <% else %>
+                        <% q = @household[0].logins %>
+                    <% end %>
+                    <%= hidden_field_tag :household_id, @household[0].id %>
+                    <%= hidden_field_tag :logins, q += 1 %>
+                    <%= submit_tag 'Submit Preferences' %></td>
+                </tr>
+            <% end %>
+            </table>
+            <% if flash[:notice] %>
+                <div class="notice"><b><font color=<%= @colorwheel[rand(8)] %>><%= flash[:notice] %></font></b></div>
+            <% end %>
         <% end %>
     <% end %>
-<% end %>
+
+</div>
