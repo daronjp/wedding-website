@@ -3,7 +3,7 @@
         <div class="container">
             <a class="brand <%= is_active?("home#index") %>" href="/"><span class="headline">Eimee <span class="highlight">&</span> Daron</span></a>
             <ul class="nav">
-                <li class="<%= is_active?("households#index") %>"><%# link_to "Directions", :controller => "home", :action => "directions" %> <%= link_to "RSVP", households_path %></li>
+                <li class="<%= is_active?("households#index") %>"><%# link_to "Directions", :controller => "home", :action => "directions" %> <%# link_to "RSVP", households_path %></li>
                 <li class="<%= is_active?("home#details") %>"><%# link_to "Directions", :controller => "home", :action => "directions" %> <%= link_to "Details", details_path %></li>
                 <li class="<%= is_active?("home#lodging") %>"><%# link_to "Lodging", :controller => "home", :action => "lodging" %> <%= link_to "Lodging", lodging_path %></li>
                 <li class="<%= is_active?("entourages#index") %>"><%= link_to 'Wedding Party', entourages_path %></li>
