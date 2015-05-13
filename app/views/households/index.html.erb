@@ -84,7 +84,7 @@
                         <td>
                             <center><h3>No &nbsp;&nbsp;<%= guest_fields.radio_button( :rsvp, 'false') %></h3></center>
                         </td>
-                        <td><%= guest_fields.select(:food, options_for_select(['Ham', 'Corn', 'Salmon', 'Bread'], :selected => guest.food), :include_blank => true) %></td>
+                        <td><%= guest_fields.select(:food, options_for_select(['Steak', 'Salmon', 'Vegan'], :selected => guest.food), :include_blank => true) %></td>
                     </tr>
                   <% end %>
                 <% end %>
