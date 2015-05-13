@@ -45,6 +45,8 @@ class Admin::HouseholdsController < ApplicationController
                      :user_id => session[:visitor_group],
                      :session => request.session_options[:id])
     
+    @guest = Guest.where("household_id = ?", params[:id])
+    
   end
   
   def edit

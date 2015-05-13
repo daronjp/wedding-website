@@ -2,11 +2,13 @@
 
     <h1 class="headline large"> RSVP </h1>
     
+    <%# @q[0].given_ %>
+    
     <table>
         <%= form_tag("/households", method: "get") do %>
             <%# label_tag(:household_name, "Last Name:") %>
             <%= text_field_tag(:household_name, "", placeholder: "Last Name") %><br>
-            <%# label_tag(:zip, "Zip:") %><%= text_field_tag(:zip, "", placeholder: 'Zip Code') %><br>
+            <%# label_tag(:zip, "Zip:") %><%= text_field_tag(:zip, "", placeholder: 'Zip Code') %><p>
             <%= submit_tag("Search") %>
         <% end %>
     </table>
@@ -15,7 +17,7 @@
     
     <% unless @household.nil? %>
         <% if @household.count > 0 %>
-            Welcome <%= @household[0].household_name %> family!
+            <h3 class="headline medium">Welcome <%= @household[0].household.household_name %> family!</h3>
         <% else %>
             Last name and zip code do not match
         <% end %>
@@ -24,6 +26,40 @@
     <% end %>
     
     <% unless @guests.nil? %>
+        <% if @guests.count < @household[0].household.seats %>
+            <%= form_for :guest, :url => {:action => :index}, method: :put do |f| %>
+                <% if @plus_one.errors.any? %>
+                  <div class="error_messages">
+                    <h2>Form is invalid</h2>
+                    <ul>
+                      <% for message in @plus_one.errors.full_messages %>
+                        <li><%= message %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+                
+                You have the option of inviting
+                
+                <% if @household[0].household.seats - @guests.count == 1 %>
+                    one additional guest.
+                <% else %>
+                    <%= @household[0].household.seats - @guests.count %> additional guests.
+                <% end %>
+                <br>If you'll be bringing someone, please enter their name below.
+                <p>
+                  <div>
+                <%= f.text_field :given_name, placeholder: "First Name" %><br>
+                
+                <%= f.text_field :family_name, placeholder: "Last Name" %><br>
+
+                <%= f.hidden_field :household_id, :value => @household[0].household.id %>
+                <%= hidden_field_tag :zip, params[:zip] %>
+                <%= hidden_field_tag :household_name, params[:household_name] %><p>
+                <%= f.submit 'Create Guest', :class => 'prominent'  %>
+                </div>
+            <% end %>
+        <% end %>
         <% if @guests.count > 0 %>
             <table class="wedding_party">
                 <tr  class="alternate">
@@ -53,13 +89,13 @@
                   <% end %>
                 <% end %>
                 <tr>
-                    <td colspan=3>Email &nbsp;<%= text_field_tag :email, @household[0].email %>
-                    <% if @household[0].logins.nil? %>
+                    <td colspan=6><%# text_field_tag :email, @household[0].email %>
+                    <% if @household[0].household.logins.nil? %>
                         <% q = 0 %>
                     <% else %>
-                        <% q = @household[0].logins %>
+                        <% q = @household[0].household.logins %>
                     <% end %>
-                    <%= hidden_field_tag :household_id, @household[0].id %>
+                    <%= hidden_field_tag :household_id, @household[0].household.id %>
                     <%= hidden_field_tag :logins, q += 1 %>
                     <%= submit_tag 'Submit Preferences' %></td>
                 </tr>

@@ -20,7 +20,9 @@
         <td><%= q.zip %></td>
         <td><%= q.rsvp %></td>
         <td><%= q.food %></td>
-        <td><%= q.household_name %></td>
+        <td><%= link_to admin_household_path(q.household_id) do %>
+              <%= q.household_name %>
+            <% end %></td>
       </tr>
     <% end %>
   </table>
