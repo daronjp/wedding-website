@@ -20,7 +20,7 @@
             <%= @peughvera[x].caption.from.username %> - <%= @peughvera[x].caption.text %><br>
             <% y = 0 %>
             <% while y < @peughvera[x].comments[:count] %>
-                <%= @peughvera[x].comments.data[y].from.username %> - <%= @peughvera[x].comments.data[y].text %><br>
+                <%= @peughvera[x].comments.data[y].from.username %> - <%= @peughvera[x].comments.data[y].text.encode('utf-8', 'iso-8859-1') %><br>
                 <% y += 1 %>
             <% end %>
             <% x += 1 %>
