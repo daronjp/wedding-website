@@ -22,36 +22,12 @@
         </tr>
     </table>
     
-    <h2>Guest Count: <%= @rsvps.count %></h2>
-    <br/>
-    <table class="admin table" id="guest_list">
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Title</th>
-            <th>First</th>
-            <th>Last</th>
-            <th>Attending</th>
-            <th>Hotel</th>
-            <th>Shuttle</th>
-        </tr>
-
-        </thead>
-
-        <% @rsvps.each_with_index do |rsvp, i| %>
-            <% cls= i % 2==0 ? "" : "alternate" %>
-            <tr class=<%= cls %>>
-                <td><%= rsvp.id %></td>
-                <td><%= rsvp.title %></td>
-                <td><%= rsvp.first_name %></td>
-                <td><%= rsvp.last_name %></td>
-                <td><%= rsvp.attending %></td>
-                <td><%= rsvp.hotel_id ? Hotel.find(rsvp.hotel_id).name : "<not selected>" %></td>
-                <td><%= rsvp.using_shuttle? %></td>
-            </tr>
-        <% end %>
-    </table>
-
-    <br/>
+    <br>
+        <h2 class="headline medium">
+            Invited: <%= Guest.count %><br>
+            Attending: <%= Guest.where(:rsvp => TRUE).count %><br>
+            Not Attending: <%= Guest.where(:rsvp => FALSE).count %><br>
+            Yet to respond: <%= Guest.where(:rsvp => nil).count %><br>
+            Maximum Guest List: <%= Guest.count - Guest.where(:rsvp => FALSE).count %></h2>
 
 </div>
