@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150518025758) do
+ActiveRecord::Schema.define(:version => 20150518032623) do
 
   create_table "entourages", :force => true do |t|
     t.string   "given_name"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20150518025758) do
     t.string   "household"
     t.boolean  "rsvp"
     t.string   "food"
+    t.string   "aux"
   end
 
   create_table "guests", :force => true do |t|

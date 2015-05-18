@@ -1,9 +1,20 @@
 class HouseholdsController < ApplicationController
   
   def index
+    Galileo.create(:controller => 'households',
+                     :view => 'index',
+                     :user_id => session[:visitor_group],
+                     :session => request.session_options[:id],
+                     :ip => request.remote_ip)
     if(params.has_key?(:household_name) && params.has_key?(:zip))
       @household = Guest.joins(:household).where("lower(guests.family_name) = ? and zip = ?", params[:household_name].downcase, params[:zip])
-      
+      Galileo.create(:controller => 'households',
+                     :view => 'index_submit',
+                     :user_id => session[:visitor_group],
+                     :session => request.session_options[:id],
+                     :ip => request.remote_ip,
+                     :household => params[:household_name],
+                     :aux => params[:zip])
       #@household = Household.where("lower(household_name) = ? and zip = ?", params[:household_name].downcase, params[:zip])
       if @household.count > 0
         @householdGuests = @household[0].household.guests
@@ -29,10 +40,25 @@ class HouseholdsController < ApplicationController
     if params[:commit] == 'Create Guest'
       @plus_one = Guest.new(params[:guest])
       @plus_one.save
+      Galileo.create(:controller => 'households',
+                     :view => 'index_plus_one',
+                     :user_id => session[:visitor_group],
+                     :session => request.session_options[:id],
+                     :ip => request.remote_ip,
+                     :household => params[:household_name],
+                     :aux => params[:zip],
+                     :food => params[:guest][:given_name] << params[:guest][:family_name])
     end
     if params[:commit] == 'Submit Preferences'
       Guest.update(params[:guest].keys, params[:guest].values)
       Household.update(params[:household_id], :email => params[:email], :logins => params[:logins])
+      Galileo.create(:controller => 'households',
+                     :view => 'index_update',
+                     :user_id => session[:visitor_group],
+                     :session => request.session_options[:id],
+                     :ip => request.remote_ip,
+                     :household => params[:household_name],
+                     :aux => params[:zip])
       @email = params[:email]
       flash[:notice] = "Options updated!"
     end
