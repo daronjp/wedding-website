@@ -37,7 +37,8 @@ class HomeController < ApplicationController
     Galileo.create(:controller => 'home',
                      :view => 'directions',
                      :user_id => session[:visitor_group],
-                     :session => request.session_options[:id])
+                     :session => request.session_options[:id],
+                     :ip => request.remote_ip)
     
   end
   
@@ -46,7 +47,8 @@ class HomeController < ApplicationController
       Galileo.create(:controller => 'home',
                        :view => 'index',
                        :user_id => session[:visitor_group],
-                       :session => request.session_options[:id])
+                       :session => request.session_options[:id],
+                       :ip => request.remote_ip)
     
   end
   
@@ -55,7 +57,8 @@ class HomeController < ApplicationController
     Galileo.create(:controller => 'home',
                      :view => 'lodging',
                      :user_id => session[:visitor_group],
-                     :session => request.session_options[:id])
+                     :session => request.session_options[:id],
+                     :ip => request.remote_ip)
     
   end
   
@@ -64,7 +67,8 @@ class HomeController < ApplicationController
     Galileo.create(:controller => 'home',
                      :view => 'registry',
                      :user_id => session[:visitor_group],
-                     :session => request.session_options[:id])
+                     :session => request.session_options[:id],
+                     :ip => request.remote_ip)
     
   end
   
@@ -74,7 +78,8 @@ class HomeController < ApplicationController
     Galileo.create(:controller => 'home',
                      :view => 'wedding_party',
                      :user_id => session[:visitor_group],
-                     :session => request.session_options[:id])
+                     :session => request.session_options[:id],
+                     :ip => request.remote_ip)
     
   end
   
@@ -107,7 +112,8 @@ class HomeController < ApplicationController
     Galileo.create(:controller => 'home',
                      :view => 'hashtags',
                      :user_id => session[:visitor_group],
-                     :session => request.session_options[:id])
+                     :session => request.session_options[:id],
+                     :ip => request.remote_ip)
 
 
 

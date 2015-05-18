@@ -8,7 +8,8 @@ class EntouragesController < ApplicationController
     Galileo.create(:controller => 'entourages',
                      :view => 'index',
                      :user_id => session[:visitor_group],
-                     :session => request.session_options[:id])
+                     :session => request.session_options[:id],
+                     :ip => request.remote_ip)
   end
   
 end

@@ -37,7 +37,8 @@ class ApplicationController < ActionController::Base
       Galileo.create(:controller => 'admin_only',
                      :view => 'unauthorized',
                      :user_id => session[:visitor_group],
-                     :session => request.session_options[:id])
+                     :session => request.session_options[:id],
+                     :ip => request.remote_ip)
       
       redirect_to root_path, :flash => { :not_authorized => "Page blocked!" }
     end  
