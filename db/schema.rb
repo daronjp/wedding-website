@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150518032623) do
+ActiveRecord::Schema.define(:version => 20150529015450) do
 
   create_table "entourages", :force => true do |t|
     t.string   "given_name"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20150518032623) do
     t.integer  "zip"
     t.string   "email"
     t.integer  "logins"
+    t.string   "postal"
   end
 
   create_table "locations", :force => true do |t|
