@@ -46,7 +46,7 @@ class HouseholdsController < ApplicationController
                      :session => request.session_options[:id],
                      :ip => request.remote_ip,
                      :household => params[:household_name],
-                     :aux => params[:zip],
+                     :aux => params[:postal],
                      :food => params[:guest][:given_name] << params[:guest][:family_name])
     end
     if params[:commit] == 'Submit Preferences'
@@ -58,11 +58,11 @@ class HouseholdsController < ApplicationController
                      :session => request.session_options[:id],
                      :ip => request.remote_ip,
                      :household => params[:household_name],
-                     :aux => params[:zip])
+                     :aux => params[:postal])
       @email = params[:email]
       flash[:notice] = "Options updated!"
     end
-    redirect_to households_path(:household_name => params[:household_name], :zip => params[:zip])
+    redirect_to households_path(:household_name => params[:household_name], :postal => params[:postal])
   end
   
   def edit_multiple

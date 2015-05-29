@@ -54,7 +54,7 @@
                 <%= f.text_field :family_name, placeholder: "Last Name" %><br>
 
                 <%= f.hidden_field :household_id, :value => @household[0].household.id %>
-                <%= hidden_field_tag :zip, params[:zip] %>
+                <%= hidden_field_tag :postal, params[:postal] %>
                 <%= hidden_field_tag :household_name, params[:household_name] %><p>
                 <%= f.submit 'Create Guest', :class => 'prominent'  %>
                 </div>
@@ -69,7 +69,7 @@
                 </tr>
             <%= form_for :household, method: :put do %>
                 <%= hidden_field_tag(:household_name, params[:household_name]) %>
-                <%= hidden_field_tag(:zip, params[:zip]) %>
+                <%= hidden_field_tag(:postal, params[:postal]) %>
                 <% @guests.each do |guest| %>
                   <%= fields_for "guest[]", guest do |guest_fields| %>
                     <tr  class="alternate">
