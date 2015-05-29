@@ -87,7 +87,11 @@
                         <% unless guest.is_child? %>
                             <td><%= guest_fields.select(:food, options_for_select(['Steak', 'Salmon', 'Vegan'], :selected => guest.food), :include_blank => true) %></td>
                         <% else %>
-                            <td><h3>Kid's meal</h3><%= guest_fields.hidden_field(:food, :value => 'Kid') %></td>
+                            <% if guest.token == 'hungry' %>
+                                <td></td>
+                            <% else %>
+                                <td><h3>Kid's meal</h3><%= guest_fields.hidden_field(:food, :value => 'Kid') %></td>
+                            <% end %>
                         <% end %>
                     </tr>
                   <% end %>
