@@ -29,7 +29,7 @@ class Admin::GuestsController < ApplicationController
   end
   
   def index
-    @guest = Guest.select("guests.*, households.household_name, households.zip").joins('left join households on guests.household_id = households.id').order(:household_id)
+    @guest = Guest.select("guests.*, households.household_name, households.postal").joins('left join households on guests.household_id = households.id').order(:household_id)
     
     Galileo.create(:controller => 'admin_guest',
                      :view => 'index',
