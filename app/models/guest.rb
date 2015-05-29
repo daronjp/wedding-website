@@ -8,7 +8,7 @@ class Guest < ActiveRecord::Base
   #validates_presence_of :email
   #validates_uniqueness_of :email
   
-  attr_accessible :given_name, :family_name, :zip, :rsvp, :food, :household_id
+  attr_accessible :given_name, :family_name, :zip, :rsvp, :food, :household_id, :is_child
   
   belongs_to :household
   has_many :households

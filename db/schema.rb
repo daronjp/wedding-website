@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150529015450) do
+ActiveRecord::Schema.define(:version => 20150529023621) do
 
   create_table "entourages", :force => true do |t|
     t.string   "given_name"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20150529015450) do
     t.boolean  "rsvp"
     t.string   "food"
     t.integer  "household_id"
+    t.boolean  "is_child"
   end
 
   create_table "hotels", :force => true do |t|

@@ -15,6 +15,10 @@
         <td><%= f.text_field :family_name %></td>
       </tr>
       <tr>
+        <td>Is Child:</td>
+        <td>Yes &nbsp;<%= f.radio_button(:is_child, "true") %> No &nbsp;<%= f.radio_button(:is_child, "false") %></td>
+      </tr>
+      <tr>
         <td>Attending:</td>
         <td>Yes &nbsp;<%= f.radio_button(:rsvp, "true") %> No &nbsp;<%= f.radio_button(:rsvp, "false") %></td>
       </tr>
