@@ -47,7 +47,6 @@ WeddingWebsite::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
-  config.logger = Logger.new(STDOUT)
 
   # Enable threaded mode
   # config.threadsafe!
