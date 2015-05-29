@@ -6,15 +6,15 @@ class HouseholdsController < ApplicationController
                      :user_id => session[:visitor_group],
                      :session => request.session_options[:id],
                      :ip => request.remote_ip)
-    if(params.has_key?(:household_name) && params.has_key?(:zip))
-      @household = Guest.joins(:household).where("lower(guests.family_name) = ? and zip = ?", params[:household_name].downcase, params[:zip])
+    if(params.has_key?(:household_name) && params.has_key?(:postal))
+      @household = Guest.joins(:household).where("lower(guests.family_name) = ? and postal = ?", params[:household_name].downcase, params[:postal])
       Galileo.create(:controller => 'households',
                      :view => 'index_submit',
                      :user_id => session[:visitor_group],
                      :session => request.session_options[:id],
                      :ip => request.remote_ip,
                      :household => params[:household_name],
-                     :aux => params[:zip])
+                     :aux => params[:postal])
       #@household = Household.where("lower(household_name) = ? and zip = ?", params[:household_name].downcase, params[:zip])
       if @household.count > 0
         @householdGuests = @household[0].household.guests

@@ -8,7 +8,7 @@
         <%= form_tag("/households", method: "get") do %>
             <%# label_tag(:household_name, "Last Name:") %>
             <%= text_field_tag(:household_name, "", placeholder: "Last Name") %><br>
-            <%# label_tag(:zip, "Zip:") %><%= text_field_tag(:zip, "", placeholder: 'Zip Code') %><p>
+            <%# label_tag(:zip, "Zip:") %><%= text_field_tag(:postal, "", placeholder: 'Zip Code') %><p>
             <%= submit_tag("Search") %>
         <% end %>
     </table>
