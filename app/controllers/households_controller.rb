@@ -9,18 +9,26 @@ class HouseholdsController < ApplicationController
                      :session => request.session_options[:id],
                      :ip => request.remote_ip)
     if(params.has_key?(:household_name) && params.has_key?(:postal))
-      @household = Guest.joins(:household).where("lower(guests.family_name) = ? and lower(postal) = ?", params[:household_name].downcase, params[:postal].downcase)
-      Galileo.create(:controller => 'households',
-                     :view => 'index_submit',
-                     :user_id => session[:visitor_group],
-                     :session => request.session_options[:id],
-                     :ip => request.remote_ip,
-                     :household => params[:household_name],
-                     :aux => params[:postal])
-      #@household = Household.where("lower(household_name) = ? and zip = ?", params[:household_name].downcase, params[:zip])
+      if params.has_key?(:hhid)
+        @household = Guest.joins(:household).where("guests.household_id = ?", params[:hhid])
+      else
+        @household = Guest.joins(:household).where("lower(guests.family_name) = ? and lower(postal) = ?", params[:household_name].downcase, params[:postal].downcase)
+        Galileo.create(:controller => 'households',
+                       :view => 'index_submit',
+                       :user_id => session[:visitor_group],
+                       :session => request.session_options[:id],
+                       :ip => request.remote_ip,
+                       :household => params[:household_name],
+                       :aux => params[:postal])
+      end
+        #@household = Household.where("lower(household_name) = ? and zip = ?", params[:household_name].downcase, params[:zip])
       if @household.count > 0
         @householdGuests = @household[0].household.guests
         @guests = Guest.where("household_id = ?", @household[0].household.id).order(:id)
+        @hhcount = Array.new
+        @household.each do |hh|
+          @hhcount.push(hh.household_id)
+        end
       end
       #redirect_to household_path(@household[0].id.to_i)
     end
@@ -64,7 +72,11 @@ class HouseholdsController < ApplicationController
       @email = params[:email]
       flash[:notice] = "Options updated!"
     end
-    redirect_to households_path(:household_name => params[:household_name], :postal => params[:postal])
+    if params.has_key?(:hhid)
+      redirect_to households_path(:household_name => params[:household_name], :postal => params[:postal], :hhid => params[:hhid])
+    else
+      redirect_to households_path(:household_name => params[:household_name], :postal => params[:postal])
+    end
   end
   
   def edit_multiple
