@@ -85,7 +85,7 @@
                             <center><h3>No &nbsp;&nbsp;<%= guest_fields.radio_button( :rsvp, 'false') %></h3></center>
                         </td>
                         <% unless guest.is_child? %>
-                            <td><%= guest_fields.select(:food, options_for_select(['Steak', 'Salmon', 'Vegan'], :selected => guest.food), :include_blank => true) %></td>
+                            <td><%= guest_fields.select(:food, options_for_select(['Beef', 'Salmon', 'Vegan'], :selected => guest.food), :include_blank => true) %></td>
                         <% else %>
                             <% if guest.token == 'hungry' %>
                                 <td></td>
