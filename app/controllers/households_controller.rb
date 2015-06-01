@@ -1,5 +1,7 @@
 class HouseholdsController < ApplicationController
   
+  before_filter :gate_keeper
+  
   def index
     Galileo.create(:controller => 'households',
                      :view => 'index',
