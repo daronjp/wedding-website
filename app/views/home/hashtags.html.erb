@@ -14,19 +14,15 @@
         <% while x < @peughvera.count %>
             <%= image_tag @peughvera[x].images.standard_resolution.url %><br>
             <%= Time.at(@peughvera[x].caption.created_time.to_i).to_datetime.strftime("%m/%d/%y") %>
-            <!--
             <% if @peughvera[x].location.name %>
                 - <%= @peughvera[x].location.name %>
             <% end %>  <br>
-            -->
             <%= @peughvera[x].caption.from.username %> - <%= @peughvera[x].caption.text.encode('utf-8', 'iso-8859-1') %><br>
-            <!--
             <% y = 0 %>
             <% while y < @peughvera[x].comments[:count] %>
                 <%= @peughvera[x].comments.data[y].from.username %> - <%= @peughvera[x].comments.data[y].text.encode('utf-8', 'iso-8859-1') %><br>
                 <% y += 1 %>
             <% end %>
-            -->
             <% x += 1 %>
         <% end %>
     <% else %>
