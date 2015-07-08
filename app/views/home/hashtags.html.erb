@@ -19,7 +19,7 @@
                 - <%= @peughvera[x].location.name %>
             <% end %>  <br>
             -->
-            <%= @peughvera[x].caption.from.username %> - <%= @peughvera[x].caption.text %><br>
+            <%= @peughvera[x].caption.from.username %> - <%= @peughvera[x].caption.text.encode('utf-8', 'iso-8859-1') %><br>
             <!--
             <% y = 0 %>
             <% while y < @peughvera[x].comments[:count] %>
