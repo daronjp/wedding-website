@@ -33,19 +33,12 @@
 <% end %>
 
 
+<% photos = ['engagement1.jpg', 'engagement2.jpg'] %>
+
 <div class="hero-unit">
     <h1 class="headline large">Eimee <span class="highlight">&amp;</span> Daron</h1>
-    <table>
-        <tr>
-            <td style="border-top: none;">
-                <center>
-                    <%= image_tag 'engagement1.jpg' %>
-                </center>
-            </td>
-        </tr>
-    </table>
-    
-    
+
+                    <%= image_tag photos[Random.new.rand(0..1)], height: '95%', width: '95%' %>
     <p>
     <h2 class="headline date">8.8.15<br>Portland, Oregon</h2></p>
 
