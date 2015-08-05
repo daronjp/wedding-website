@@ -40,14 +40,22 @@
                 <p></p>
                 
                 <h2>Photo Sharing</h2>
-                <h4>Instagram - #peughveras8815</h4>
-                <h4>Photo Circle</h4>
-                <%= request.user_agent.downcase %>
-                <% if request.user_agent.downcase.include? "ios" %>
-                    <a href='https://itunes.apple.com/us/app/photocircle/id517539894?mt=8'>Photo Circle App</a>
+                <h3>Instagram</h3>
+                Post your own photos and follow along using #peughveras8815<p></p>
+                <h3>Photo Circle</h3>
+                Photo Circle allows you to share photos amongst wedding attendees. First, start by installing the app on your
+                mobile device.<p></p>
+                <% if request.user_agent.downcase.include? "iph" %>
+                    <a href='https://itunes.apple.com/us/app/photocircle/id517539894?mt=8'><img src='http://static1.squarespace.com/static/533c0f0de4b029e9c590a99b/t/53f74553e4b02e1724ab6229/1408714067231/app-store-logo-downloadapple-app-store-logopng-ovmibbgz.png'></a>
+                <% elsif request.user_agent.downcase.include? "android" %>
+                    <a href='https://play.google.com/store/apps/details?id=com.circle38.photocircle&hl=en'><img src='https://www.gstatic.com/android/market_images/web/play_logo_x2.png'></a>
                 <% else %>
-                    TEST
+                    <a href='https://itunes.apple.com/us/app/photocircle/id517539894?mt=8'><img src='http://static1.squarespace.com/static/533c0f0de4b029e9c590a99b/t/53f74553e4b02e1724ab6229/1408714067231/app-store-logo-downloadapple-app-store-logopng-ovmibbgz.png'></a><br>
+                    <a href='https://play.google.com/store/apps/details?id=com.circle38.photocircle&hl=en'><img src='https://www.gstatic.com/android/market_images/web/play_logo_x2.png' width=183 height=39></a>
                 <% end %>
+                <p></p>
+                Once you've installed the app, click the link below to join the private group.<p></p>
+                <a href='http://join.circlewithme.com/CYFbyK'>Join Photo Circle</a><p></p>
                 <h2>Registry Information</h2>
                 Password: Pdx8815 (case sensitive)<p></p>
                 
