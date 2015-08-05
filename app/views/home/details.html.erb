@@ -42,6 +42,7 @@
                 <h2>Photo Sharing</h2>
                 <h4>Instagram - #peughveras8815</h4>
                 <h4>Photo Circle</h4>
+                <%= request.user_agent.downcase %>
                 <% if request.user_agent.downcase.include? "ios" %>
                     <a href='https://itunes.apple.com/us/app/photocircle/id517539894?mt=8'>Photo Circle App</a>
                 <% else %>
